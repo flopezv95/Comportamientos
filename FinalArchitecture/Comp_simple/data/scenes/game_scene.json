@@ -1,0 +1,69 @@
+{
+	"sounds":
+	[
+		{
+			"type": "preloaded",
+			"name": "explosion",
+			"file": "data/sound/explosion.mp3"
+		}
+	],
+	
+	"images":
+	[
+		{
+			"name": "alien",
+			"file": "data/images/alien.png"
+		},
+		{
+			"name": "bullet",
+			"file": "data/images/bullet.png"		
+		},		
+		{
+			"name": "plane",
+			"file": "data/images/plane.png"		
+		}		
+	],
+	
+	"sprites":
+	[
+		{
+			"name":  "alien",
+			"image": "alien",
+			"layer": "LAYER_FRONT"
+		},
+		{
+			"name":  "bullet",
+			"image": "bullet",
+			"layer": "LAYER_FRONT"
+		},		
+		{
+			"name":  "plane",
+			"image": "plane",
+			"layer": "LAYER_FRONT"
+		}		
+	],
+
+	"entities":
+	[
+		{
+			"type":   "hardcoded_player",
+			"sprite": "plane",
+			"x":      25.0,
+			"y":      50.0,
+			"z":      0.0,
+			"scale_x": 1.0,
+			"scale_y": 1.0,
+			"rotation": 0.0
+		},	
+		{
+			"type":   "hardcoded_alien",
+			"sprite": "alien",
+			"x":      50.0,
+			"y":      20.0,
+			"z":      0.0,
+			"scale_x": 1.0,
+			"scale_y": 1.0,
+			"rotation": 0.0
+		}
+	]
+}

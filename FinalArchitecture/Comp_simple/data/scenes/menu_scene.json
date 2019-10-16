@@ -1,0 +1,42 @@
+{
+	"sounds":
+	[
+		{
+			"type": "preloaded",
+			"name": "explosion",
+			"file": "data/sound/explosion.mp3"
+		}
+	],
+	
+	"images":
+	[
+		{
+			"name": "boton_unpressed",
+			"file": "data/images/boton_unpressed.png"
+		}
+	],
+	
+	"sprites":
+	[
+		{
+			"name":  "boton",
+			"image": "boton_unpressed",
+			"layer": "LAYER_FRONT"
+		}
+	],
+
+	"entities":
+	[
+		{
+			"type":   "button",
+			"sprite": "boton",
+			"name":		"GotoGame",
+			"x":      50.0,
+			"y":      50.0,
+			"z":      0.0,
+			"scale_x": 1.0,
+			"scale_y": 1.0,
+			"rotation": 0.0
+		}
+	]
+}

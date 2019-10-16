@@ -1,0 +1,278 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{74581F74-84B5-4F40-896B-9045B445E6AE}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>Comportamientos</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0.16299.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>v141</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+    <LibraryPath>$(VC_LibraryPath_x86);$(WindowsSDK_LibraryPath_x86);$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <WarningLevel>Level4</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <DebugInformationFormat>OldStyle</DebugInformationFormat>
+      <CompileAs>CompileAsCpp</CompileAs>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>bass/bass.lib;lib/glfw.win32.lib;opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <IgnoreAllDefaultLibraries>false</IgnoreAllDefaultLibraries>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <CompileAs>CompileAsCpp</CompileAs>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalDependencies>bass/bass.lib;lib/glfw.win32.lib;opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <Text Include="ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Game\collider\CollideManagerSimple.h" />
+    <ClInclude Include="Game\collider\graphics\GameSprite.h" />
+    <ClInclude Include="Game\collider\graphics\Graphics.h" />
+    <ClInclude Include="Game\Component\AIController.h" />
+    <ClInclude Include="Game\Component\Animator.h" />
+    <ClInclude Include="Game\Component\Button.h" />
+    <ClInclude Include="Game\Component\Collision.h" />
+    <ClInclude Include="Game\Component\Component2.h" />
+    <ClInclude Include="Game\Component\GameOverController.h" />
+    <ClInclude Include="Game\Component\Text.h" />
+    <ClInclude Include="Game\Component\Transform.h" />
+    <ClInclude Include="Game\Component\Velocity.h" />
+    <ClInclude Include="Game\Entity\Entity2.h" />
+    <ClInclude Include="Game\Game.h" />
+    <ClInclude Include="Game\InputManager\Events2.h" />
+    <ClInclude Include="Game\InputManager\InputManager2.h" />
+    <ClInclude Include="Game\ManageMessages\Message.h" />
+    <ClInclude Include="Game\Scene\GameBaseScene2.h" />
+    <ClInclude Include="Game\Scene\GameLostScene.h" />
+    <ClInclude Include="Game\Scene\GamePlayScene.h" />
+    <ClInclude Include="Game\Scene\GameSceneMainMenu2.h" />
+    <ClInclude Include="Game\Scene\SceneManager.h" />
+    <ClInclude Include="include\array.h" />
+    <ClInclude Include="include\bone.h" />
+    <ClInclude Include="include\bonedata.h" />
+    <ClInclude Include="include\camera.h" />
+    <ClInclude Include="include\circlecollision.h" />
+    <ClInclude Include="include\collision.h" />
+    <ClInclude Include="include\collisionmanager.h" />
+    <ClInclude Include="include\collisionpixeldata.h" />
+    <ClInclude Include="include\emitter.h" />
+    <ClInclude Include="include\font.h" />
+    <ClInclude Include="include\frame.h" />
+    <ClInclude Include="include\glinclude.h" />
+    <ClInclude Include="include\glyph.h" />
+    <ClInclude Include="include\image.h" />
+    <ClInclude Include="include\isometricmap.h" />
+    <ClInclude Include="include\isometricscene.h" />
+    <ClInclude Include="include\isometricsprite.h" />
+    <ClInclude Include="include\map.h" />
+    <ClInclude Include="include\mapscene.h" />
+    <ClInclude Include="include\math.h" />
+    <ClInclude Include="include\parallaxscene.h" />
+    <ClInclude Include="include\particle.h" />
+    <ClInclude Include="include\pixelcollision.h" />
+    <ClInclude Include="include\rectcollision.h" />
+    <ClInclude Include="include\renderer.h" />
+    <ClInclude Include="include\resourcemanager.h" />
+    <ClInclude Include="include\scene.h" />
+    <ClInclude Include="include\screen.h" />
+    <ClInclude Include="include\skeletondata.h" />
+    <ClInclude Include="include\skeletonsprite.h" />
+    <ClInclude Include="include\sprite.h" />
+    <ClInclude Include="include\string.h" />
+    <ClInclude Include="include\types.h" />
+    <ClInclude Include="include\u-gine.h" />
+    <ClInclude Include="Lua\lapi.h" />
+    <ClInclude Include="Lua\lauxlib.h" />
+    <ClInclude Include="Lua\lcode.h" />
+    <ClInclude Include="Lua\lctype.h" />
+    <ClInclude Include="Lua\ldebug.h" />
+    <ClInclude Include="Lua\ldo.h" />
+    <ClInclude Include="Lua\lfunc.h" />
+    <ClInclude Include="Lua\lgc.h" />
+    <ClInclude Include="Lua\llex.h" />
+    <ClInclude Include="Lua\llimits.h" />
+    <ClInclude Include="Lua\lmem.h" />
+    <ClInclude Include="Lua\lobject.h" />
+    <ClInclude Include="Lua\lopcodes.h" />
+    <ClInclude Include="Lua\lparser.h" />
+    <ClInclude Include="Lua\lprefix.h" />
+    <ClInclude Include="Lua\lstate.h" />
+    <ClInclude Include="Lua\lstring.h" />
+    <ClInclude Include="Lua\ltable.h" />
+    <ClInclude Include="Lua\ltm.h" />
+    <ClInclude Include="Lua\lua.h" />
+    <ClInclude Include="Lua\lua.hpp" />
+    <ClInclude Include="Lua\luaconf.h" />
+    <ClInclude Include="Lua\lualib.h" />
+    <ClInclude Include="Lua\lundump.h" />
+    <ClInclude Include="Lua\lvm.h" />
+    <ClInclude Include="Lua\lzio.h" />
+    <ClInclude Include="stdafx.h" />
+    <ClInclude Include="targetver.h" />
+    <ClInclude Include="Utils\json.h" />
+    <ClInclude Include="Utils\leaks.h" />
+    <ClInclude Include="Utils\log.h" />
+    <ClInclude Include="Utils\rapidjson\document.h" />
+    <ClInclude Include="Utils\rapidjson\filestream.h" />
+    <ClInclude Include="Utils\rapidjson\internal\pow10.h" />
+    <ClInclude Include="Utils\rapidjson\internal\stack.h" />
+    <ClInclude Include="Utils\rapidjson\internal\strfunc.h" />
+    <ClInclude Include="Utils\rapidjson\prettywriter.h" />
+    <ClInclude Include="Utils\rapidjson\rapidjson.h" />
+    <ClInclude Include="Utils\rapidjson\reader.h" />
+    <ClInclude Include="Utils\rapidjson\stringbuffer.h" />
+    <ClInclude Include="Utils\rapidjson\writer.h" />
+    <ClInclude Include="Vector2D.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Comportamientos.cpp" />
+    <ClCompile Include="Game\collider\CollideManagerSimple.cpp" />
+    <ClCompile Include="Game\collider\graphics\GameSprite.cpp" />
+    <ClCompile Include="Game\collider\graphics\Graphics.cpp" />
+    <ClCompile Include="Game\Component\AIController.cpp" />
+    <ClCompile Include="Game\Component\Animator.cpp" />
+    <ClCompile Include="Game\Component\Button.cpp" />
+    <ClCompile Include="Game\Component\Collision.cpp" />
+    <ClCompile Include="Game\Component\GameOverController.cpp" />
+    <ClCompile Include="Game\Component\Text.cpp" />
+    <ClCompile Include="Game\Component\Transform.cpp" />
+    <ClCompile Include="Game\Component\Velocity.cpp" />
+    <ClCompile Include="Game\Entity\Entity2.cpp" />
+    <ClCompile Include="Game\Game.cpp" />
+    <ClCompile Include="Game\InputManager\InputManager2.cpp" />
+    <ClCompile Include="Game\Scene\GameBaseScene2.cpp" />
+    <ClCompile Include="Game\Scene\GameLostScene.cpp" />
+    <ClCompile Include="Game\Scene\GamePlayScene.cpp" />
+    <ClCompile Include="Game\Scene\GameSceneMainMenu2.cpp" />
+    <ClCompile Include="Game\Scene\SceneManager.cpp" />
+    <ClCompile Include="lib\stb_image.c" />
+    <ClCompile Include="Lua\lapi.c" />
+    <ClCompile Include="Lua\lauxlib.c" />
+    <ClCompile Include="Lua\lbaselib.c" />
+    <ClCompile Include="Lua\lbitlib.c" />
+    <ClCompile Include="Lua\lcode.c" />
+    <ClCompile Include="Lua\lcorolib.c" />
+    <ClCompile Include="Lua\lctype.c" />
+    <ClCompile Include="Lua\ldblib.c" />
+    <ClCompile Include="Lua\ldebug.c" />
+    <ClCompile Include="Lua\ldo.c" />
+    <ClCompile Include="Lua\ldump.c" />
+    <ClCompile Include="Lua\lfunc.c" />
+    <ClCompile Include="Lua\lgc.c" />
+    <ClCompile Include="Lua\linit.c" />
+    <ClCompile Include="Lua\liolib.c" />
+    <ClCompile Include="Lua\llex.c" />
+    <ClCompile Include="Lua\lmathlib.c" />
+    <ClCompile Include="Lua\lmem.c" />
+    <ClCompile Include="Lua\loadlib.c" />
+    <ClCompile Include="Lua\lobject.c" />
+    <ClCompile Include="Lua\lopcodes.c" />
+    <ClCompile Include="Lua\loslib.c" />
+    <ClCompile Include="Lua\lparser.c" />
+    <ClCompile Include="Lua\lstate.c" />
+    <ClCompile Include="Lua\lstring.c" />
+    <ClCompile Include="Lua\lstrlib.c" />
+    <ClCompile Include="Lua\ltable.c" />
+    <ClCompile Include="Lua\ltablib.c" />
+    <ClCompile Include="Lua\ltm.c" />
+    <ClCompile Include="Lua\lundump.c" />
+    <ClCompile Include="Lua\lutf8lib.c" />
+    <ClCompile Include="Lua\lvm.c" />
+    <ClCompile Include="Lua\lzio.c" />
+    <ClCompile Include="src\bone.cpp" />
+    <ClCompile Include="src\camera.cpp" />
+    <ClCompile Include="src\collisionmanager.cpp" />
+    <ClCompile Include="src\collisionpixeldata.cpp" />
+    <ClCompile Include="src\emitter.cpp" />
+    <ClCompile Include="src\font.cpp" />
+    <ClCompile Include="src\image.cpp" />
+    <ClCompile Include="src\isometricmap.cpp" />
+    <ClCompile Include="src\isometricscene.cpp" />
+    <ClCompile Include="src\isometricsprite.cpp" />
+    <ClCompile Include="src\map.cpp" />
+    <ClCompile Include="src\mapscene.cpp" />
+    <ClCompile Include="src\math.cpp" />
+    <ClCompile Include="src\parallaxscene.cpp" />
+    <ClCompile Include="src\particle.cpp" />
+    <ClCompile Include="src\renderer.cpp" />
+    <ClCompile Include="src\resourcemanager.cpp" />
+    <ClCompile Include="src\scene.cpp" />
+    <ClCompile Include="src\screen.cpp" />
+    <ClCompile Include="src\skeletondata.cpp" />
+    <ClCompile Include="src\skeletonsprite.cpp" />
+    <ClCompile Include="src\sprite.cpp" />
+    <ClCompile Include="stdafx.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="Utils\json.cpp" />
+    <ClCompile Include="Utils\leaks.cpp" />
+    <ClCompile Include="Utils\leaks_windows.cpp" />
+    <ClCompile Include="Vector2D.cpp" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

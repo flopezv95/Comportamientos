@@ -1,0 +1,595 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Source Files\U-gine">
+      <UniqueIdentifier>{158db87c-0568-4cb7-af64-66599fa5e750}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Utils">
+      <UniqueIdentifier>{2138af2a-95aa-40dc-927d-5c0750ad8fd4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Utils\rapidjson">
+      <UniqueIdentifier>{c679a7d6-0b9f-4bd3-b1e8-1ef6fc49e106}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Lua">
+      <UniqueIdentifier>{afd44e3f-4296-4ff0-851c-e66159d744f8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\game">
+      <UniqueIdentifier>{46de65aa-cbdf-47ed-af7d-9a3599a15f4b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\game\InputManager">
+      <UniqueIdentifier>{7c444d6d-7087-48d6-910c-0b1bdc7da051}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\game\Scenes">
+      <UniqueIdentifier>{55d77247-86ff-4403-833f-0b51f3a54cc2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\game\Entity">
+      <UniqueIdentifier>{0ab52c30-9ac1-4e89-ad2f-47727b64f830}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\game\Component">
+      <UniqueIdentifier>{2fa7aafe-d94d-4f66-ac4d-eb5df00febf3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\game\ManageMessages">
+      <UniqueIdentifier>{007d1553-1009-43c6-a5a6-0e6078fa7fc9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\game\collider">
+      <UniqueIdentifier>{4f2d16e0-8e80-43dc-9def-8c05bf02b26d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\game\collider\graphics">
+      <UniqueIdentifier>{d72341e2-54cb-4bbb-adf8-27d3b159afde}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="targetver.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\array.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\bone.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\bonedata.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\camera.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\circlecollision.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\collision.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\collisionmanager.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\collisionpixeldata.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\emitter.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\font.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\frame.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\glinclude.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\glyph.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\image.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\isometricmap.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\isometricscene.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\isometricsprite.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\map.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\mapscene.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\math.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\parallaxscene.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\particle.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\pixelcollision.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\rectcollision.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\renderer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\resourcemanager.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\scene.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\screen.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\skeletondata.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\skeletonsprite.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\sprite.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\string.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\types.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\u-gine.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Utils\leaks.h">
+      <Filter>Source Files\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="stdafx.h" />
+    <ClInclude Include="Utils\rapidjson\document.h">
+      <Filter>Source Files\Utils\rapidjson</Filter>
+    </ClInclude>
+    <ClInclude Include="Utils\rapidjson\filestream.h">
+      <Filter>Source Files\Utils\rapidjson</Filter>
+    </ClInclude>
+    <ClInclude Include="Utils\rapidjson\internal\pow10.h">
+      <Filter>Source Files\Utils\rapidjson</Filter>
+    </ClInclude>
+    <ClInclude Include="Utils\rapidjson\prettywriter.h">
+      <Filter>Source Files\Utils\rapidjson</Filter>
+    </ClInclude>
+    <ClInclude Include="Utils\rapidjson\rapidjson.h">
+      <Filter>Source Files\Utils\rapidjson</Filter>
+    </ClInclude>
+    <ClInclude Include="Utils\rapidjson\reader.h">
+      <Filter>Source Files\Utils\rapidjson</Filter>
+    </ClInclude>
+    <ClInclude Include="Utils\rapidjson\internal\stack.h">
+      <Filter>Source Files\Utils\rapidjson</Filter>
+    </ClInclude>
+    <ClInclude Include="Utils\rapidjson\internal\strfunc.h">
+      <Filter>Source Files\Utils\rapidjson</Filter>
+    </ClInclude>
+    <ClInclude Include="Utils\rapidjson\stringbuffer.h">
+      <Filter>Source Files\Utils\rapidjson</Filter>
+    </ClInclude>
+    <ClInclude Include="Utils\rapidjson\writer.h">
+      <Filter>Source Files\Utils\rapidjson</Filter>
+    </ClInclude>
+    <ClInclude Include="Utils\json.h">
+      <Filter>Source Files\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="Lua\lapi.h">
+      <Filter>Lua</Filter>
+    </ClInclude>
+    <ClInclude Include="Lua\lauxlib.h">
+      <Filter>Lua</Filter>
+    </ClInclude>
+    <ClInclude Include="Lua\lcode.h">
+      <Filter>Lua</Filter>
+    </ClInclude>
+    <ClInclude Include="Lua\lctype.h">
+      <Filter>Lua</Filter>
+    </ClInclude>
+    <ClInclude Include="Lua\ldebug.h">
+      <Filter>Lua</Filter>
+    </ClInclude>
+    <ClInclude Include="Lua\ldo.h">
+      <Filter>Lua</Filter>
+    </ClInclude>
+    <ClInclude Include="Lua\lfunc.h">
+      <Filter>Lua</Filter>
+    </ClInclude>
+    <ClInclude Include="Lua\lgc.h">
+      <Filter>Lua</Filter>
+    </ClInclude>
+    <ClInclude Include="Lua\llex.h">
+      <Filter>Lua</Filter>
+    </ClInclude>
+    <ClInclude Include="Lua\llimits.h">
+      <Filter>Lua</Filter>
+    </ClInclude>
+    <ClInclude Include="Lua\lmem.h">
+      <Filter>Lua</Filter>
+    </ClInclude>
+    <ClInclude Include="Lua\lobject.h">
+      <Filter>Lua</Filter>
+    </ClInclude>
+    <ClInclude Include="Lua\lopcodes.h">
+      <Filter>Lua</Filter>
+    </ClInclude>
+    <ClInclude Include="Lua\lparser.h">
+      <Filter>Lua</Filter>
+    </ClInclude>
+    <ClInclude Include="Lua\lprefix.h">
+      <Filter>Lua</Filter>
+    </ClInclude>
+    <ClInclude Include="Lua\lstate.h">
+      <Filter>Lua</Filter>
+    </ClInclude>
+    <ClInclude Include="Lua\lstring.h">
+      <Filter>Lua</Filter>
+    </ClInclude>
+    <ClInclude Include="Lua\ltable.h">
+      <Filter>Lua</Filter>
+    </ClInclude>
+    <ClInclude Include="Lua\ltm.h">
+      <Filter>Lua</Filter>
+    </ClInclude>
+    <ClInclude Include="Lua\lua.h">
+      <Filter>Lua</Filter>
+    </ClInclude>
+    <ClInclude Include="Lua\lua.hpp">
+      <Filter>Lua</Filter>
+    </ClInclude>
+    <ClInclude Include="Lua\luaconf.h">
+      <Filter>Lua</Filter>
+    </ClInclude>
+    <ClInclude Include="Lua\lualib.h">
+      <Filter>Lua</Filter>
+    </ClInclude>
+    <ClInclude Include="Lua\lundump.h">
+      <Filter>Lua</Filter>
+    </ClInclude>
+    <ClInclude Include="Lua\lvm.h">
+      <Filter>Lua</Filter>
+    </ClInclude>
+    <ClInclude Include="Lua\lzio.h">
+      <Filter>Lua</Filter>
+    </ClInclude>
+    <ClInclude Include="Utils\log.h">
+      <Filter>Source Files\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="Vector2D.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\collider\graphics\GameSprite.h">
+      <Filter>Source Files\game\collider\graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\collider\graphics\Graphics.h">
+      <Filter>Source Files\game\collider\graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\collider\CollideManagerSimple.h">
+      <Filter>Source Files\game\collider</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Entity\Entity2.h">
+      <Filter>Source Files\game\Entity</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Component\AIController.h">
+      <Filter>Source Files\game\Component</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Component\Animator.h">
+      <Filter>Source Files\game\Component</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Component\Button.h">
+      <Filter>Source Files\game\Component</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Component\Collision.h">
+      <Filter>Source Files\game\Component</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Component\Component2.h">
+      <Filter>Source Files\game\Component</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Component\GameOverController.h">
+      <Filter>Source Files\game\Component</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Component\Text.h">
+      <Filter>Source Files\game\Component</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Component\Transform.h">
+      <Filter>Source Files\game\Component</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Component\Velocity.h">
+      <Filter>Source Files\game\Component</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\InputManager\Events2.h">
+      <Filter>Source Files\game\InputManager</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\InputManager\InputManager2.h">
+      <Filter>Source Files\game\InputManager</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\ManageMessages\Message.h">
+      <Filter>Source Files\game\ManageMessages</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Scene\GameBaseScene2.h">
+      <Filter>Source Files\game\Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Scene\GameLostScene.h">
+      <Filter>Source Files\game\Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Scene\GamePlayScene.h">
+      <Filter>Source Files\game\Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Scene\GameSceneMainMenu2.h">
+      <Filter>Source Files\game\Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Scene\SceneManager.h">
+      <Filter>Source Files\game\Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Game.h">
+      <Filter>Source Files\game</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\bone.cpp">
+      <Filter>Source Files\U-gine</Filter>
+    </ClCompile>
+    <ClCompile Include="src\camera.cpp">
+      <Filter>Source Files\U-gine</Filter>
+    </ClCompile>
+    <ClCompile Include="src\collisionmanager.cpp">
+      <Filter>Source Files\U-gine</Filter>
+    </ClCompile>
+    <ClCompile Include="src\collisionpixeldata.cpp">
+      <Filter>Source Files\U-gine</Filter>
+    </ClCompile>
+    <ClCompile Include="src\emitter.cpp">
+      <Filter>Source Files\U-gine</Filter>
+    </ClCompile>
+    <ClCompile Include="src\font.cpp">
+      <Filter>Source Files\U-gine</Filter>
+    </ClCompile>
+    <ClCompile Include="src\image.cpp">
+      <Filter>Source Files\U-gine</Filter>
+    </ClCompile>
+    <ClCompile Include="src\isometricmap.cpp">
+      <Filter>Source Files\U-gine</Filter>
+    </ClCompile>
+    <ClCompile Include="src\isometricscene.cpp">
+      <Filter>Source Files\U-gine</Filter>
+    </ClCompile>
+    <ClCompile Include="src\isometricsprite.cpp">
+      <Filter>Source Files\U-gine</Filter>
+    </ClCompile>
+    <ClCompile Include="src\map.cpp">
+      <Filter>Source Files\U-gine</Filter>
+    </ClCompile>
+    <ClCompile Include="src\mapscene.cpp">
+      <Filter>Source Files\U-gine</Filter>
+    </ClCompile>
+    <ClCompile Include="src\math.cpp">
+      <Filter>Source Files\U-gine</Filter>
+    </ClCompile>
+    <ClCompile Include="src\parallaxscene.cpp">
+      <Filter>Source Files\U-gine</Filter>
+    </ClCompile>
+    <ClCompile Include="src\particle.cpp">
+      <Filter>Source Files\U-gine</Filter>
+    </ClCompile>
+    <ClCompile Include="src\renderer.cpp">
+      <Filter>Source Files\U-gine</Filter>
+    </ClCompile>
+    <ClCompile Include="src\resourcemanager.cpp">
+      <Filter>Source Files\U-gine</Filter>
+    </ClCompile>
+    <ClCompile Include="src\scene.cpp">
+      <Filter>Source Files\U-gine</Filter>
+    </ClCompile>
+    <ClCompile Include="src\screen.cpp">
+      <Filter>Source Files\U-gine</Filter>
+    </ClCompile>
+    <ClCompile Include="src\skeletondata.cpp">
+      <Filter>Source Files\U-gine</Filter>
+    </ClCompile>
+    <ClCompile Include="src\skeletonsprite.cpp">
+      <Filter>Source Files\U-gine</Filter>
+    </ClCompile>
+    <ClCompile Include="src\sprite.cpp">
+      <Filter>Source Files\U-gine</Filter>
+    </ClCompile>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>Source Files\U-gine</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\stb_image.c">
+      <Filter>Source Files\U-gine</Filter>
+    </ClCompile>
+    <ClCompile Include="Utils\leaks_windows.cpp">
+      <Filter>Source Files\Utils</Filter>
+    </ClCompile>
+    <ClCompile Include="Utils\leaks.cpp">
+      <Filter>Source Files\Utils</Filter>
+    </ClCompile>
+    <ClCompile Include="Utils\json.cpp">
+      <Filter>Source Files\Utils</Filter>
+    </ClCompile>
+    <ClCompile Include="Lua\lapi.c">
+      <Filter>Lua</Filter>
+    </ClCompile>
+    <ClCompile Include="Lua\lauxlib.c">
+      <Filter>Lua</Filter>
+    </ClCompile>
+    <ClCompile Include="Lua\lbaselib.c">
+      <Filter>Lua</Filter>
+    </ClCompile>
+    <ClCompile Include="Lua\lbitlib.c">
+      <Filter>Lua</Filter>
+    </ClCompile>
+    <ClCompile Include="Lua\lcode.c">
+      <Filter>Lua</Filter>
+    </ClCompile>
+    <ClCompile Include="Lua\lcorolib.c">
+      <Filter>Lua</Filter>
+    </ClCompile>
+    <ClCompile Include="Lua\lctype.c">
+      <Filter>Lua</Filter>
+    </ClCompile>
+    <ClCompile Include="Lua\ldblib.c">
+      <Filter>Lua</Filter>
+    </ClCompile>
+    <ClCompile Include="Lua\ldebug.c">
+      <Filter>Lua</Filter>
+    </ClCompile>
+    <ClCompile Include="Lua\ldo.c">
+      <Filter>Lua</Filter>
+    </ClCompile>
+    <ClCompile Include="Lua\ldump.c">
+      <Filter>Lua</Filter>
+    </ClCompile>
+    <ClCompile Include="Lua\lfunc.c">
+      <Filter>Lua</Filter>
+    </ClCompile>
+    <ClCompile Include="Lua\lgc.c">
+      <Filter>Lua</Filter>
+    </ClCompile>
+    <ClCompile Include="Lua\linit.c">
+      <Filter>Lua</Filter>
+    </ClCompile>
+    <ClCompile Include="Lua\liolib.c">
+      <Filter>Lua</Filter>
+    </ClCompile>
+    <ClCompile Include="Lua\llex.c">
+      <Filter>Lua</Filter>
+    </ClCompile>
+    <ClCompile Include="Lua\lmathlib.c">
+      <Filter>Lua</Filter>
+    </ClCompile>
+    <ClCompile Include="Lua\lmem.c">
+      <Filter>Lua</Filter>
+    </ClCompile>
+    <ClCompile Include="Lua\loadlib.c">
+      <Filter>Lua</Filter>
+    </ClCompile>
+    <ClCompile Include="Lua\lobject.c">
+      <Filter>Lua</Filter>
+    </ClCompile>
+    <ClCompile Include="Lua\lopcodes.c">
+      <Filter>Lua</Filter>
+    </ClCompile>
+    <ClCompile Include="Lua\loslib.c">
+      <Filter>Lua</Filter>
+    </ClCompile>
+    <ClCompile Include="Lua\lparser.c">
+      <Filter>Lua</Filter>
+    </ClCompile>
+    <ClCompile Include="Lua\lstate.c">
+      <Filter>Lua</Filter>
+    </ClCompile>
+    <ClCompile Include="Lua\lstring.c">
+      <Filter>Lua</Filter>
+    </ClCompile>
+    <ClCompile Include="Lua\lstrlib.c">
+      <Filter>Lua</Filter>
+    </ClCompile>
+    <ClCompile Include="Lua\ltable.c">
+      <Filter>Lua</Filter>
+    </ClCompile>
+    <ClCompile Include="Lua\ltablib.c">
+      <Filter>Lua</Filter>
+    </ClCompile>
+    <ClCompile Include="Lua\ltm.c">
+      <Filter>Lua</Filter>
+    </ClCompile>
+    <ClCompile Include="Lua\lundump.c">
+      <Filter>Lua</Filter>
+    </ClCompile>
+    <ClCompile Include="Lua\lutf8lib.c">
+      <Filter>Lua</Filter>
+    </ClCompile>
+    <ClCompile Include="Lua\lvm.c">
+      <Filter>Lua</Filter>
+    </ClCompile>
+    <ClCompile Include="Lua\lzio.c">
+      <Filter>Lua</Filter>
+    </ClCompile>
+    <ClCompile Include="Comportamientos.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Vector2D.cpp">
+      <Filter>Source Files\U-gine</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\collider\graphics\GameSprite.cpp">
+      <Filter>Source Files\game\collider\graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\collider\graphics\Graphics.cpp">
+      <Filter>Source Files\game\collider\graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\collider\CollideManagerSimple.cpp">
+      <Filter>Source Files\game\collider</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Entity\Entity2.cpp">
+      <Filter>Source Files\game\Entity</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Component\AIController.cpp">
+      <Filter>Source Files\game\Component</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Component\Animator.cpp">
+      <Filter>Source Files\game\Component</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Component\Button.cpp">
+      <Filter>Source Files\game\Component</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Component\Collision.cpp">
+      <Filter>Source Files\game\Component</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Component\GameOverController.cpp">
+      <Filter>Source Files\game\Component</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Component\Text.cpp">
+      <Filter>Source Files\game\Component</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Component\Transform.cpp">
+      <Filter>Source Files\game\Component</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Component\Velocity.cpp">
+      <Filter>Source Files\game\Component</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\InputManager\InputManager2.cpp">
+      <Filter>Source Files\game\InputManager</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Scene\GameBaseScene2.cpp">
+      <Filter>Source Files\game\Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Scene\GameLostScene.cpp">
+      <Filter>Source Files\game\Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Scene\GamePlayScene.cpp">
+      <Filter>Source Files\game\Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Scene\GameSceneMainMenu2.cpp">
+      <Filter>Source Files\game\Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Scene\SceneManager.cpp">
+      <Filter>Source Files\game\Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Game.cpp">
+      <Filter>Source Files\game</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>
