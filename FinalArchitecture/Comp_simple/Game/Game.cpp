@@ -18,6 +18,14 @@ CGame::CGame()
 	m_pScreen = nullptr;
 	m_fDeltaTime = 0;
 }
+CGame::~CGame()
+{
+	SAFE_DELETE(g_pGR2);
+	SAFE_DELETE(m_pInput_manager);
+	DEL(g_pSM);
+	SAFE_DELETE(g_pCM);
+	DUMP_LEAKS
+}
 //****************************************************************************************************************
 //
 //****************************************************************************************************************
@@ -41,9 +49,6 @@ int CGame::Init()
 void CGame::End()
 {
 	ResourceManager::Instance().FreeResources();
-	SAFE_DELETE(g_pGR2);
-	DEL(m_pInput_manager);
-	DUMP_LEAKS
 }
 //****************************************************************************************************************
 //

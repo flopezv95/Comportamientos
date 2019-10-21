@@ -18,9 +18,8 @@ void callback_key2(int ikey , int iAction)
 {
 	g_pIM->injectKeyboardEvent(ikey, iAction);
 }
-void callback_mouse_position(double xpos, double ypos) { //Funcion callback para guardar la posicion del cursor
-
-
+void callback_mouse_position(double xpos, double ypos) { 
+	//Funcion callback para guardar la posicion del cursor
 }
 //*****************************************************************************************
 //CInputManager2

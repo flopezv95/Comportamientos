@@ -22,6 +22,7 @@ class CGame
 {
 public:
 	CGame();
+	~CGame();
 	int Init();
 	void End();
 	void Update();

@@ -22,7 +22,7 @@ public:
 	void SetScale(float x, float y) { m_fScaleX = x; m_fScaleY = y; }
 	Vector2D GetPosition();
 	Vector2D GetScale();
-	virtual void Update(float fDelta) {} //m_iPositionX = mouseXPosition; m_iPositionY = mouseYPosition; }
+	virtual void Update(float fDelta) {} 
 	virtual void ManageMessage(TMessage * pmessage);
 
 private:

@@ -31,17 +31,17 @@ CGameSceneMainMenu2::CGameSceneMainMenu2() : CGameBaseScene2(CGameBaseScene2::EM
 CGameSceneMainMenu2::~CGameSceneMainMenu2()
 {
 	RemoveEntity(m_pBackGround);
-	DEL(m_pBackGround);
+	SAFE_DELETE(m_pBackGround);
 	RemoveEntity(m_pText);
-	DEL(m_pText);
+	SAFE_DELETE(m_pText);
 	RemoveEntity(m_pImageLife1);
-	DEL(m_pImageLife1);
+	SAFE_DELETE(m_pImageLife1);
 	RemoveEntity(m_pImageLife2);
-	DEL(m_pImageLife2);
+	SAFE_DELETE(m_pImageLife2);
 	RemoveEntity(m_pImageLife3);
-	DEL(m_pImageLife3);
+	SAFE_DELETE(m_pImageLife3);
 	RemoveEntity(m_pButton);
-	DEL(m_pButton);
+	SAFE_DELETE(m_pButton);
 }
 //****************************************************************************************
 //
@@ -59,7 +59,7 @@ int CGameSceneMainMenu2::Init()
 	m_pText->AddComponent(NEW(CText, (m_pText, String("data/fonts/font.png"), String("THE BEE'S GAME"), 300.0, 550.0)));
 	m_pText->AddComponent(NEW(CText, (m_pText, String("data/fonts/font.png"), String("SCORE"), 20.0, 15.0)));
 	m_pText->AddComponent(NEW(CText, (m_pText, String("data/fonts/font.png"), String("0"), 50.0, 35.0)));
-	m_pText->AddComponent(NEW(CText, (m_pText, String("data/fonts/font.png"), String("PRESS S TO START THE GAME"), 200.0, 150.0)));
+	m_pText->AddComponent(NEW(CText, (m_pText, String("data/fonts/font.png"), String("PRESS TO START THE GAME"), 220.0, 150.0)));
 	AddEntity(m_pText);
 	//Add life images
 	m_pImageLife1 = NEW(CEntity2, ("LifeImage"));
@@ -82,11 +82,15 @@ int CGameSceneMainMenu2::Init()
 	AddEntity(m_pImageLife3);
 	//Add button
 	m_pButton = NEW(CEntity2, ("Button"));
+	m_pButton->SetPosition(585.0f, 280.0f);
+	m_pButton->SetScale(0.3f, 0.3f);
+	m_pButton->AddComponent(NEW(CAnimator, (m_pButton, "data/images/start.jpg")));
+	m_pButton->AddComponent(NEW(CVelocity, (m_pButton)));
 	auto callback = [](CButton * pButton)
 	{
 		g_pSM->SetScene(CGameBaseScene2::EPlayGameScene);
 	};
-	m_pButton->AddComponent(NEW(CButton, (m_pButton, callback,'S')));
+	m_pButton->AddComponent(NEW(CButton, (m_pButton, callback,true)));
 	AddEntity(m_pButton);
 	return 0;
 }

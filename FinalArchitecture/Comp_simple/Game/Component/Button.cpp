@@ -15,6 +15,13 @@ CButton::CButton(CEntity2 * pEntity, std::function<void(CButton*)> callback, cha
 	m_callback = callback;
 	m_ckey = key;
 }
+
+CButton::CButton(CEntity2 * pEntity, std::function<void(CButton*)> callback, bool bUseLeftButton) :CComponent2(EButton, pEntity)
+{
+	g_pIM->RegisterToEvent(this);
+	m_callback = callback;
+	m_bUseLeftButton = bUseLeftButton;
+}
 //****************************************************************************************
 //
 //****************************************************************************************
@@ -33,6 +40,17 @@ void CButton::ManageEvent(TEvent * pEvent)
 		if (p->Getkey() == m_ckey)
 		{
 			m_callback(this);
+		}
+	}
+	else if (pEvent->GetType() == TEvent::EMouseDownLeft)
+	{
+		if (m_bUseLeftButton)
+		{
+			TEventMouseDownLeft *p = static_cast<TEventMouseDownLeft *> (pEvent);
+			if (p->Getx() > 310 && p->Getx() < 475 && p->Gety() > 200 && p->Gety() < 245)
+			{
+				m_callback(this);
+			}
 		}
 	}
 }

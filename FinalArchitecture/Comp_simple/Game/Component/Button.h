@@ -15,6 +15,7 @@ class CButton : public CComponent2, public CInputManager2::IListener
 {
 public:
 	CButton(CEntity2 * pEntity, std::function<void(CButton*)> callback, char key);
+	CButton(CEntity2 * pEntity, std::function<void(CButton*)> callback, bool bUseLeftButton);
 
 	~CButton();
 
@@ -25,6 +26,7 @@ public:
 private:
 	std::function<void(CButton *)> m_callback;
 	char m_ckey;
+	bool m_bUseLeftButton;
 };
 
 #endif

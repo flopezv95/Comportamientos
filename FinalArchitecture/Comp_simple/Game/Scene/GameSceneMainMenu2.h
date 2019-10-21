@@ -4,7 +4,7 @@
 
 /*
 Esta escena es la primera que el usuario ve al iniciar el juego.
-Een esta escena esta las instrucciones para iniciar el juego
+En esta escena esta las instrucciones para iniciar el juego
 */
 
 class CEntity2;
