@@ -16,7 +16,7 @@ public:
     virtual uint16 GetVFrames() const { return vframes; }
     virtual uint16 GetWidth() const { return width / hframes; }
     virtual uint16 GetHeight() const { return height / vframes; }
-    virtual void SetHandle(int32 handlex, int32 handley) { this->handlex = handlex; this->handley = handley; }
+    virtual void SetHandle(int32 handlexToAdd, int32 handleyToAdd) { this->handlex = handlexToAdd; this->handley = handleyToAdd; }
     virtual void SetMidHandle() { SetHandle(GetWidth()/2, GetHeight()/2); }
     virtual int32 GetHandleX() const { return handlex; }
     virtual int32 GetHandleY() const { return handley; }

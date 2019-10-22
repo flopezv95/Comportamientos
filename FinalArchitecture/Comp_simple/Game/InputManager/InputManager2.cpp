@@ -51,7 +51,7 @@ CInputManager2::~CInputManager2()
 void CInputManager2::DeregisterToEvent(IListener * pObserver)
 {
 	
-		for (int i =0; i< m_listeners.size(); i++)
+		for (unsigned int i =0; i< m_listeners.size(); i++)
 		{
 			if (m_listeners[i] == pObserver)
 			{
@@ -99,7 +99,6 @@ void CInputManager2::Update()
 	glfwPollEvents();
 	for (TEvent* event : m_events)
 	{
-		int size = m_listeners.size();
 		for (IListener* listener : m_listeners)
 			listener->ManageEvent(event);
 		DEL(event);

@@ -95,7 +95,7 @@ static int str_lower (lua_State *L) {
   const char *s = luaL_checklstring(L, 1, &l);
   char *p = luaL_buffinitsize(L, &b, l);
   for (i=0; i<l; i++)
-    p[i] = tolower(uchar(s[i]));
+    p[i] = static_cast<char>(tolower(uchar(s[i])));
   luaL_pushresultsize(&b, l);
   return 1;
 }
@@ -108,7 +108,7 @@ static int str_upper (lua_State *L) {
   const char *s = luaL_checklstring(L, 1, &l);
   char *p = luaL_buffinitsize(L, &b, l);
   for (i=0; i<l; i++)
-    p[i] = toupper(uchar(s[i]));
+    p[i] = static_cast<char>(toupper(uchar(s[i])));
   luaL_pushresultsize(&b, l);
   return 1;
 }
@@ -1152,7 +1152,7 @@ static void packint (luaL_Buffer *b, lua_Unsigned n,
   }
   if (neg && size > SZINT) {  /* negative number need sign extension? */
     for (i = SZINT; i < size; i++)  /* correct extra bytes */
-      buff[islittle ? i : size - 1 - i] = (char)MC;
+      buff[islittle ? i : size - 1 - i] = static_cast<char>(MC);
   }
   luaL_addsize(b, size);  /* add result to buffer */
 }

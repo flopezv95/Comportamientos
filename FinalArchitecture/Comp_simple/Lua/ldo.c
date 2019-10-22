@@ -325,7 +325,7 @@ int luaD_precall (lua_State *L, StkId func, int nresults) {
      Cfunc:
       luaD_checkstack(L, LUA_MINSTACK);  /* ensure minimum stack size */
       ci = next_ci(L);  /* now 'enter' new function */
-      ci->nresults = nresults;
+      ci->nresults = static_cast<short>(nresults);
       ci->func = restorestack(L, funcr);
       ci->top = L->top + LUA_MINSTACK;
       lua_assert(ci->top <= L->stack_last);
@@ -356,7 +356,7 @@ int luaD_precall (lua_State *L, StkId func, int nresults) {
         func = restorestack(L, funcr);  /* previous call can change stack */
       }
       ci = next_ci(L);  /* now 'enter' new function */
-      ci->nresults = nresults;
+      ci->nresults = static_cast<short>(nresults);
       ci->func = func;
       ci->u.l.base = base;
       ci->top = base + p->maxstacksize;
@@ -591,7 +591,7 @@ LUA_API int lua_resume (lua_State *L, lua_State *from, int nargs) {
     }
     else lua_assert(status == L->status);  /* normal end or yield */
   }
-  L->nny = oldnny;  /* restore 'nny' */
+  L->nny = static_cast<unsigned short>(oldnny);  /* restore 'nny' */
   L->nCcalls--;
   lua_assert(L->nCcalls == ((from) ? from->nCcalls : 0));
   lua_unlock(L);

@@ -287,7 +287,7 @@ void luaK_checkstack (FuncState *fs, int n) {
 
 void luaK_reserveregs (FuncState *fs, int n) {
   luaK_checkstack(fs, n);
-  fs->freereg += n;
+  fs->freereg += static_cast<lu_byte>(n);
 }
 
 
@@ -735,8 +735,8 @@ static void codenot (FuncState *fs, expdesc *e) {
 
 void luaK_indexed (FuncState *fs, expdesc *t, expdesc *k) {
   lua_assert(!hasjumps(t));
-  t->u.ind.t = t->u.info;
-  t->u.ind.idx = luaK_exp2RK(fs, k);
+  t->u.ind.t = static_cast<lu_byte>(t->u.info);
+  t->u.ind.idx = static_cast<short>(luaK_exp2RK(fs, k));
   t->u.ind.vt = (t->k == VUPVAL) ? VUPVAL
                                  : check_exp(vkisinreg(t->k), VLOCAL);
   t->k = VINDEXED;
@@ -949,6 +949,6 @@ void luaK_setlist (FuncState *fs, int base, int nelems, int tostore) {
   }
   else
     luaX_syntaxerror(fs->ls, "constructor too long");
-  fs->freereg = base + 1;  /* free registers with list values */
+  fs->freereg = static_cast<lu_byte>(base + 1);  /* free registers with list values */
 }
 

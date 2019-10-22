@@ -20,20 +20,20 @@ public:
 	Sprite(Image* image);
 	virtual ~Sprite();
 
-    virtual void SetImage(Image* image) { this->image = image; }
+    virtual void SetImage(Image* imageToAdd) { this->image = imageToAdd; }
     virtual const Image* GetImage() const { return image; }
 
-    virtual void SetPosition(double x, double y, double z = 0) { SetX(x); SetY(y); SetZ(z); }
-    virtual void SetX(double x) { this->x = x; }
-    virtual void SetY(double y) { this->y = y; }
-    virtual void SetZ(double z) { this->z = z; }
+    virtual void SetPosition(double xPosition, double yPosition, double zPosition = 0) { SetX(xPosition); SetY(yPosition); SetZ(zPosition); }
+    virtual void SetX(double xPosition) { this->x = xPosition; }
+    virtual void SetY(double yPosition) { this->y = yPosition; }
+    virtual void SetZ(double zPosition) { this->z = zPosition; }
     virtual double GetX() const { return x; }
     virtual double GetY() const { return y; }
     virtual double GetZ() const { return z; }
     virtual double GetScreenX() const { return x; }
     virtual double GetScreenY() const { return y; }
 
-    virtual void SetAngle(double angle) { this->angle = angle; }
+    virtual void SetAngle(double angleToAdd) { this->angle = angleToAdd; }
     virtual double GetAngle() const { return angle; }
 
     virtual void SetScale(double sx, double sy) { SetScaleX(sx); SetScaleY(sy); }
@@ -44,7 +44,7 @@ public:
 
     virtual void SetFPS(int16 fps) { animFPS = fps; }
     virtual int16 GetFPS() const { return animFPS; }
-    virtual void SetFrameRange(uint16 firstFrame, uint16 lastFrame) { this->firstFrame = firstFrame; this->lastFrame = lastFrame; }
+    virtual void SetFrameRange(uint16 firstFrametoAdd, uint16 lastFrameToAdd) { this->firstFrame = firstFrametoAdd; this->lastFrame = lastFrameToAdd; }
     virtual uint16 GetFirstFrame() const { return firstFrame; }
     virtual uint16 GetLastFrame() { return lastFrame; }
     virtual void SetCurrentFrame(uint16 frame) { currentFrame = frame; }
@@ -52,17 +52,17 @@ public:
 
     virtual void SetBlendMode(Renderer::BlendMode blend) { blendMode = blend; }
     virtual Renderer::BlendMode GetBlendMode() const { return blendMode; }
-    virtual void SetColor(uint8 r, uint8 g, uint8 b, uint8 alpha = 255) { this->r = r; this->g = g; this->b = b; this->a = alpha; }
+    virtual void SetColor(uint8 rComponent, uint8 gComponent, uint8 bComponent, uint8 alphaComponent = 255) { this->r = rComponent; this->g = gComponent; this->b = bComponent; this->a = alphaComponent; }
     virtual uint8 GetRed() const { return r; }
     virtual uint8 GetGreen() const { return g; }
     virtual uint8 GetBlue() const { return b; }
     virtual uint8 GetAlpha() const { return a; }
 
-    virtual void SetRadius(double radius) { this->radius = radius; }
+    virtual void SetRadius(double radiusToAdd) { this->radius = radiusToAdd; }
     virtual double GetRadius() const { return this->radius; }
 
 	virtual void SetCollision(CollisionMode mode);
-    virtual void SetCollisionPixelData(const CollisionPixelData* colPixelData) { this->colPixelData = colPixelData; }
+    virtual void SetCollisionPixelData(const CollisionPixelData* colPixelDataToAdd) { this->colPixelData = colPixelDataToAdd; }
     virtual const Collision* GetCollision() const { return collision; }
     virtual bool CheckCollision(Sprite* sprite);
     virtual bool CheckCollision(const Map* map);

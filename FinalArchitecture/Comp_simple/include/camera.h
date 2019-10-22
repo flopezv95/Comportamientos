@@ -9,7 +9,7 @@ class Camera {
 public:
 	Camera();
 
-    virtual void SetPosition(double x, double y) { SetX(x); SetY(y); }
+    virtual void SetPosition(double xPosition, double yPosition) { SetX(xPosition); SetY(yPosition); }
     virtual void SetX(double x);
     virtual void SetY(double y);
     virtual double GetX() const { return x; }

@@ -91,9 +91,9 @@ Vector2D operator/(const Vector2D& vec1, const float scale) { //Definicion de nu
 
 float Vector2D::magnitude() const { //Definiendo la funcion para hallar la magnitud
 
-	float posX = pow(m_x, 2);
-	float posY = pow(m_y, 2);
-	float absVector = sqrt(posX + posY);
+	float posX = static_cast<float>(pow(m_x, 2));
+	float posY = static_cast<float>(pow(m_y, 2));
+	float absVector = static_cast<float>(sqrt(posX + posY));
 
 	return absVector;
 
@@ -112,7 +112,7 @@ float Vector2D::Angle(const Vector2D& other) const { //Definir la funcion para s
 	float resultDotProduct = ((other.m_x*m_x) + (other.m_y*m_y));
 	float module = magnitude();
 	float maduleOther = other.magnitude();
-	float angle = acos(((resultDotProduct) / (module*maduleOther)));
+	float angle = static_cast<float>(acos(((resultDotProduct) / (module*maduleOther))));
 
 	return angle;
 }
@@ -122,11 +122,11 @@ float Vector2D::Distance(const Vector2D& other) const //Definir la funcion para 
 	float xValue = other.m_x - this->m_x;
 	float yValue = other.m_y - this->m_y;
 
-	float xPow = pow(xValue, 2);
-	float yPow = pow(yValue, 2);
+	float xPow = static_cast<float>(pow(xValue, 2));
+	float yPow = static_cast<float>(pow(yValue, 2));
 
 	float addPow = xPow + yPow;
-	float distance = sqrt(addPow);
+	float distance = static_cast<float>(sqrt(addPow));
 
 	return distance;
 }

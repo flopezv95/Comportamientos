@@ -34,14 +34,14 @@ SkeletonData::SkeletonData(const String& filename) {
 				xml_node<>* translateNode = frameNode->first_node("translate");
 				xml_node<>* rotateNode = frameNode->first_node("rotate");
 				xml_node<>* scaleNode = frameNode->first_node("scale");
-				int32 id = (int32)(atof(frameNode->first_attribute("id")->value()) - 1);
+				int32 newId = (int32)(atof(frameNode->first_attribute("id")->value()) - 1);
 				double translatex = atof(translateNode->first_attribute("x")->value());
 				double translatey = atof(translateNode->first_attribute("y")->value());
 				double rotate = atof(rotateNode->first_attribute("z")->value());
 				double scalex = atof(scaleNode->first_attribute("x")->value());
 				double scaley = atof(scaleNode->first_attribute("y")->value());
 
-                Frame frame(id, translatex, translatey, rotate, scalex, scaley);
+                Frame frame(newId, translatex, translatey, rotate, scalex, scaley);
                 boneData.AddFrame(frame);
 
 				frameNode = frameNode->next_sibling("frame");

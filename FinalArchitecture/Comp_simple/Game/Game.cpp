@@ -35,7 +35,7 @@ int CGame::Init()
 	Screen& screen = Screen::Instance();
 	m_pScreen = &screen;
 	m_pRenderer = &renderer;
-	m_pScreen->Open(g_widthScreen, g_heightScreen, false);
+	m_pScreen->Open(static_cast<uint16>(g_widthScreen), static_cast<uint16>(g_heightScreen), false);
 	m_pInput_manager = NEW(CInputManager2, ());
 	g_pGR2 = NEW(CGraphics, ());
 	g_pSM = NEW(CSceneManager, ());

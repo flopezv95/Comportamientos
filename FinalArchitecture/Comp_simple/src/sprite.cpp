@@ -76,12 +76,12 @@ bool Sprite::CheckCollision(const Map* map) {
 	}
 }
 
-void Sprite::RotateTo(int32 angle, double speed) {
-	if ( WrapValue(angle, 360) == WrapValue(this->angle, 360)  ||  speed == 0 ) {
+void Sprite::RotateTo(int32 angleToRotate, double speed) {
+	if ( WrapValue(angleToRotate, 360) == WrapValue(this->angle, 360)  ||  speed == 0 ) {
 		rotating = false;
 	} else {
 		rotating = true;
-		toAngle = (uint16)WrapValue(angle, 360);
+		toAngle = (uint16)WrapValue(angleToRotate, 360);
 
 		uint16 wrapAngle = (uint16)WrapValue(this->angle, 360);
 		if ( min(WrapValue(toAngle-wrapAngle,360), WrapValue(wrapAngle-toAngle,360)) == WrapValue(toAngle-wrapAngle,360) ) {
@@ -94,20 +94,20 @@ void Sprite::RotateTo(int32 angle, double speed) {
 	}
 }
 
-void Sprite::MoveTo(double x, double y, double speedX, double speedY) {
-	if ( this->x == x  &&  this->y == y ) {
+void Sprite::MoveTo(double xToMove, double yToMove, double speedXToMove, double speedYToMove) {
+	if ( this->x == xToMove &&  this->y == yToMove) {
 		moving = false;
 	} else {
 		moving = true;
-		toX = x;
-		toY = y;
-		if (speedY == 0 ) {
-			double timeNeeded = Distance(this->x, this->y, x, y) / fabs(speedX);
-			movingSpeedX = fabs(this->x - x) / timeNeeded;
-			movingSpeedY = fabs(this->y - y) / timeNeeded;
+		toX = xToMove;
+		toY = yToMove;
+		if (speedYToMove == 0 ) {
+			double timeNeeded = Distance(this->x, this->y, xToMove, yToMove) / fabs(speedXToMove);
+			movingSpeedX = fabs(this->x - xToMove) / timeNeeded;
+			movingSpeedY = fabs(this->y - yToMove) / timeNeeded;
 		} else {
-			movingSpeedX = speedX;
-			movingSpeedY = speedY;
+			movingSpeedX = speedXToMove;
+			movingSpeedY = speedYToMove;
 		}
 	}
 }
@@ -178,16 +178,16 @@ void Sprite::Render() const {
 }
 
 void Sprite::UpdateCollisionBox() {
-	double x = GetX()-image->GetHandleX()*fabs(GetScaleX());
-	double y = GetY()-image->GetHandleY()*fabs(GetScaleY());
-	double w = image->GetWidth()*fabs(GetScaleX());
-	double h = image->GetHeight()*fabs(GetScaleY());
-	UpdateCollisionBox(x, y, w, h);
+	double xNew = GetX()-image->GetHandleX()*fabs(GetScaleX());
+	double yNew = GetY()-image->GetHandleY()*fabs(GetScaleY());
+	double wNew = image->GetWidth()*fabs(GetScaleX());
+	double hNew = image->GetHeight()*fabs(GetScaleY());
+	UpdateCollisionBox(xNew, yNew, wNew, hNew);
 }
 
-void Sprite::UpdateCollisionBox(double x, double y, double w, double h) {
-	colx = x;
-	coly = y;
-	colwidth = w;
-	colheight = h;
+void Sprite::UpdateCollisionBox(double xToUpdate, double yToUpdate, double wToUpdate, double hToUpdate) {
+	colx = xToUpdate;
+	coly = yToUpdate;
+	colwidth = wToUpdate;
+	colheight = hToUpdate;
 }

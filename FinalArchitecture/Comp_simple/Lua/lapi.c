@@ -860,7 +860,7 @@ LUA_API void lua_setuservalue (lua_State *L, int idx) {
   api_checknelems(L, 1);
   o = index2addr(L, idx);
   api_check(ttisfulluserdata(o), "full userdata expected");
-  setuservalue(L, uvalue(o), L->top - 1);
+  setuservalue(L, uvalue(o), L->top -1);
   luaC_barrier(L, gcvalue(o), L->top - 1);
   L->top--;
   lua_unlock(L);
@@ -1049,7 +1049,7 @@ LUA_API int lua_gc (lua_State *L, int what, int data) {
         luaE_setdebt(g, debt);
         luaC_checkGC(L);
       }
-      g->gcrunning = oldrunning;  /* restore previous state */
+      g->gcrunning = static_cast<lu_byte>(oldrunning);  /* restore previous state */
       if (debt > 0 && g->gcstate == GCSpause)  /* end of cycle? */
         res = 1;  /* signal it */
       break;

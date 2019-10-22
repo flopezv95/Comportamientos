@@ -654,7 +654,7 @@ static void recfield (LexState *ls, struct ConsControl *cc) {
   rkkey = luaK_exp2RK(fs, &key);
   expr(ls, &val);
   luaK_codeABC(fs, OP_SETTABLE, cc->t->u.info, rkkey, luaK_exp2RK(fs, &val));
-  fs->freereg = reg;  /* free registers */
+  fs->freereg = static_cast<lu_byte>(reg);  /* free registers */
 }
 
 
@@ -848,7 +848,7 @@ static void funcargs (LexState *ls, expdesc *f, int line) {
   }
   init_exp(f, VCALL, luaK_codeABC(fs, OP_CALL, base, nparams+1, 2));
   luaK_fixline(fs, line);
-  fs->freereg = base+1;  /* call remove function and arguments and leaves
+  fs->freereg = static_cast<lu_byte>(base+1);  /* call remove function and arguments and leaves
                             (unless changed) one result */
 }
 
@@ -1120,12 +1120,12 @@ static void check_conflict (LexState *ls, struct LHS_assign *lh, expdesc *v) {
       if (lh->v.u.ind.vt == v->k && lh->v.u.ind.t == v->u.info) {
         conflict = 1;
         lh->v.u.ind.vt = VLOCAL;
-        lh->v.u.ind.t = extra;  /* previous assignment will use safe copy */
+        lh->v.u.ind.t = static_cast<lu_byte>(extra);  /* previous assignment will use safe copy */
       }
       /* index is the local being assigned? (index cannot be upvalue) */
       if (v->k == VLOCAL && lh->v.u.ind.idx == v->u.info) {
         conflict = 1;
-        lh->v.u.ind.idx = extra;  /* previous assignment will use safe copy */
+        lh->v.u.ind.idx = static_cast<short>(extra);  /* previous assignment will use safe copy */
       }
     }
   }
@@ -1158,7 +1158,7 @@ static void assignment (LexState *ls, struct LHS_assign *lh, int nvars) {
     if (nexps != nvars) {
       adjust_assign(ls, nvars, nexps, &e);
       if (nexps > nvars)
-        ls->fs->freereg -= nexps - nvars;  /* remove extra values */
+        ls->fs->freereg -= static_cast<lu_byte>(nexps - nvars);  /* remove extra values */
     }
     else {
       luaK_setoneret(ls->fs, &e);  /* close last expression */

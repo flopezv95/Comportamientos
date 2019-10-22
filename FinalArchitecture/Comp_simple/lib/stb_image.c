@@ -1426,10 +1426,10 @@ static int parse_entropy_coded_data(jpeg *z)
    return 1;
 }
 
-static int process_marker(jpeg *z, int m)
+static int process_marker(jpeg *z, int mNew)
 {
    int L;
-   switch (m) {
+   switch (mNew) {
       case MARKER_none: // no marker found
          return e("expected marker","Corrupt JPEG");
 
@@ -1487,7 +1487,7 @@ static int process_marker(jpeg *z, int m)
          return L==0;
    }
    // check for comment block or APP blocks
-   if ((m >= 0xE0 && m <= 0xEF) || m == 0xFE) {
+   if ((mNew >= 0xE0 && mNew <= 0xEF) || mNew == 0xFE) {
       skip(z->s, get16(z->s)-2);
       return 1;
    }
@@ -2016,10 +2016,10 @@ static int zbuild_huffman(zhuffman *z, uint8 *sizelist, int num)
          z->size[c] = (uint8)s;
          z->value[c] = (uint16)i;
          if (s <= ZFAST_BITS) {
-            int k = bit_reverse(next_code[s],s);
-            while (k < (1 << ZFAST_BITS)) {
-               z->fast[k] = (uint16) c;
-               k += (1 << s);
+            int l = bit_reverse(next_code[s],s);
+            while (l < (1 << ZFAST_BITS)) {
+               z->fast[l] = (uint16) c;
+               l += (1 << s);
             }
          }
          ++next_code[s];
@@ -3773,7 +3773,6 @@ static stbi_uc *pic_load2(stbi *s,int width,int height,int *comp, stbi_uc *resul
 
                   if (count >= 128) { // Repeated
                      stbi_uc value[4];
-                     int i;
 
                      if (count==128)
                         count = get16(s);
@@ -3785,7 +3784,7 @@ static stbi_uc *pic_load2(stbi *s,int width,int height,int *comp, stbi_uc *resul
                      if (!pic_readval(s,packet->channel,value))
                         return 0;
 
-                     for(i=0;i<count;++i, dest += 4)
+                     for(int j=0;j<count;++j, dest += 4)
                         pic_copyval(packet->channel,dest,value);
                   } else { // Raw
                      ++count;
@@ -4015,22 +4014,22 @@ static uint8 *stbi_process_gif_raster(stbi *s, stbi_gif *g)
          bits |= (int32) get8(s) << valid_bits;
          valid_bits += 8;
       } else {
-         int32 code = bits & codemask;
+         int32 NewCode = bits & codemask;
          bits >>= codesize;
          valid_bits -= codesize;
          // @OPTIMIZE: is there some way we can accelerate the non-clear path?
-         if (code == clear) {  // clear code
+         if (NewCode == clear) {  // clear code
             codesize = lzw_cs + 1;
             codemask = (1 << codesize) - 1;
             avail = clear + 2;
             oldcode = -1;
             first = 0;
-         } else if (code == clear + 1) { // end of stream code
+         } else if (NewCode == clear + 1) { // end of stream code
             skip(s, len);
             while ((len = get8(s)) > 0)
                skip(s,len);
             return g->out;
-         } else if (code <= avail) {
+         } else if (NewCode <= avail) {
             if (first) return epuc("no clear code", "Corrupt GIF");
 
             if (oldcode >= 0) {
@@ -4038,8 +4037,8 @@ static uint8 *stbi_process_gif_raster(stbi *s, stbi_gif *g)
                if (avail > 4096)        return epuc("too many codes", "Corrupt GIF");
                p->prefix = (int16) oldcode;
                p->first = g->codes[oldcode].first;
-               p->suffix = (code == avail) ? p->first : g->codes[code].first;
-            } else if (code == avail)
+               p->suffix = (NewCode == avail) ? p->first : g->codes[code].first;
+            } else if (NewCode == avail)
                return epuc("illegal code in raster", "Corrupt GIF");
 
             stbi_out_gif_code(g, (uint16) code);
@@ -4049,7 +4048,7 @@ static uint8 *stbi_process_gif_raster(stbi *s, stbi_gif *g)
                codemask = (1 << codesize) - 1;
             }
 
-            oldcode = code;
+            oldcode = NewCode;
          } else {
             return epuc("illegal code in raster", "Corrupt GIF");
          }

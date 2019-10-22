@@ -27,15 +27,15 @@ Bone::Bone(const String& id, Image* image, double pivotX, double pivotY, double 
     currentScaleX = currentScaleY = 1;
 }
 
-const Bone* Bone::FindChild(const String &id) const {
+const Bone* Bone::FindChild(const String &idToLookAfter) const {
     // Buscamos en los hijos del hueso
     for ( uint32 i = 0; i < children.Size(); i++ )
-        if ( children[i].GetID() == id )
+        if ( children[i].GetID() == idToLookAfter)
             return &children[i];
 
 	// Si no, en toda su descendencia
     for ( uint32 i = 0; i < children.Size(); i++ ) {
-        const Bone* bone = children[i].FindChild(id);
+        const Bone* bone = children[i].FindChild(idToLookAfter);
 		if ( bone != NULL )
 			return bone;
 	}
@@ -44,15 +44,15 @@ const Bone* Bone::FindChild(const String &id) const {
     return NULL;
 }
 
-Bone* Bone::FindChild(const String &id) {
+Bone* Bone::FindChild(const String &idToLookAfter) {
     // Buscamos en los hijos del hueso
     for ( uint32 i = 0; i < children.Size(); i++ )
-        if ( children[i].GetID() == id )
+        if ( children[i].GetID() == idToLookAfter)
             return &children[i];
 
     // Si no, en toda su descendencia
     for ( uint32 i = 0; i < children.Size(); i++ ) {
-        Bone* bone = children[i].FindChild(id);
+        Bone* bone = children[i].FindChild(idToLookAfter);
         if ( bone != NULL )
             return bone;
     }
@@ -61,9 +61,9 @@ Bone* Bone::FindChild(const String &id) {
     return NULL;
 }
 
-const Frame* Bone::FindFrame(uint32 id) const {
+const Frame* Bone::FindFrame(uint32 idToFind) const {
     for ( uint32 i = 0; i < frames.Size(); i++ )
-        if (static_cast<uint32>(frames[i].GetId()) == id )
+        if (static_cast<uint32>(frames[i].GetId()) == idToFind)
             return &frames[i];
 	return NULL;
 }
@@ -158,7 +158,7 @@ void Bone::GetFrame(int32 f, const Frame** frame, const Frame** prevFrame, const
 	}
 }
 
-double Bone::Interpolate(int32 id, int32 prevId, int32 nextId, double prevVal, double nextVal) const {
-	double coef = (id - prevId) * 1.0 / (nextId - prevId);
+double Bone::Interpolate(int32 idToInterpolate, int32 prevId, int32 nextId, double prevVal, double nextVal) const {
+	double coef = (idToInterpolate - prevId) * 1.0 / (nextId - prevId);
 	return prevVal + (nextVal - prevVal)*coef;
 }

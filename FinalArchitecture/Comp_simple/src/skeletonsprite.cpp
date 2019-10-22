@@ -27,14 +27,14 @@ SkeletonSprite::SkeletonSprite(const String& filename) : Sprite(NULL) {
             parent = root->FindChild(boneData.GetParentName());
 
 		// Obtenemos imagen
-        Image* image = ResourceManager::Instance().LoadImage(filename.ExtractDir() + "/" + boneData.GetImageFilename());
+        Image* newImage = ResourceManager::Instance().LoadImage(filename.ExtractDir() + "/" + boneData.GetImageFilename());
 
 		// Creamos hueso
-        Bone bone(boneData.GetId(), image, boneData.GetPivotX(), boneData.GetPivotY(), boneData.GetHandleX(), boneData.GetHandleY());
+        Bone bone(boneData.GetId(), newImage, boneData.GetPivotX(), boneData.GetPivotY(), boneData.GetHandleX(), boneData.GetHandleY());
 
 		// Aniadimos frames
-        for ( uint32 i = 0; i < boneData.GetFrames().Size(); i++ )
-            bone.AddFrame(boneData.GetFrames()[i]);
+        for ( uint32 j = 0; j < boneData.GetFrames().Size(); j++ )
+            bone.AddFrame(boneData.GetFrames()[j]);
 
 		// Aniadimos hueso
 		parent->AddChild(bone);	

@@ -18,8 +18,8 @@ Font::Font(const String &filename) : Image(filename, 16, 16) {
             // Encontramos el glifo dentro del frame
             double xoffset = 0;
             double yoffset = 0;
-            double width = GetWidth();
-            double height = GetHeight();
+            double newWidth = GetWidth();
+            double newHeight = GetHeight();
             uint16 row = (uint16)floor(i*1.0 / GetHFrames());
             uint16 column = i % GetHFrames();
             for ( uint16 y = row*GetHeight(); y < (row + 1)*GetHeight(); y++ ) {
@@ -31,8 +31,8 @@ Font::Font(const String &filename) : Image(filename, 16, 16) {
                         yoffset = (y - row*GetHeight())*-1.0;
                         SetPixelColor(buffer, static_cast<uint16>(w), x, y, 0, 0, 0, 0);
                     } else if ( r == 255  &&  g == 0  &&  b == 0 ) {
-                        width = (x - column*GetWidth()) + xoffset;
-                        height = (y - row*GetHeight()) + yoffset;
+						newWidth = (x - column*GetWidth()) + xoffset;
+						newHeight = (y - row*GetHeight()) + yoffset;
                         SetPixelColor(buffer, static_cast<uint16>(w), x, y, 0, 0, 0, 0);
                     } else if ( r == 0  &&  g == 0  &&  b == 0 ) {
                         SetPixelColor(buffer, static_cast<uint16>(w), x, y, 0, 0, 0, 0);
@@ -41,7 +41,7 @@ Font::Font(const String &filename) : Image(filename, 16, 16) {
             }
 
             // Aniadimos el glifo a la lista
-            glyphs.Add(Glyph(xoffset, yoffset, width, height));
+            glyphs.Add(Glyph(xoffset, yoffset, newWidth, newHeight));
 		}
 
 		// Modificamos la textura (hemos convertido en transparentes los pixeles del glifo)
@@ -53,9 +53,9 @@ Font::Font(const String &filename) : Image(filename, 16, 16) {
 }
 
 uint32 Font::GetTextWidth(const String &text) const {
-    uint32 width = 0;
-    for ( int i = 0; i < text.Length(); i++ ) width += (int)glyphs[(unsigned char)text[i]].GetWidth();
-    return width;
+    uint32 newWidth = 0;
+    for ( int i = 0; i < text.Length(); i++ ) newWidth += (int)glyphs[(unsigned char)text[i]].GetWidth();
+    return newWidth;
 }
 
 void Font::Render(const String &text, double x, double y) const {
@@ -66,16 +66,16 @@ void Font::Render(const String &text, double x, double y) const {
     }
 }
 
-void Font::GetPixelColor(uint8* buffer, uint16 width, uint16 x, uint16 y, uint8* r, uint8* g, uint8* b, uint8* a) const {
-	*r = buffer[(y*width + x)*4 + 0];
-	*g = buffer[(y*width + x)*4 + 1];
-	*b = buffer[(y*width + x)*4 + 2];
-	*a = buffer[(y*width + x)*4 + 3];
+void Font::GetPixelColor(uint8* buffer, uint16 newWidth, uint16 x, uint16 y, uint8* r, uint8* g, uint8* b, uint8* a) const {
+	*r = buffer[(y*newWidth + x)*4 + 0];
+	*g = buffer[(y*newWidth + x)*4 + 1];
+	*b = buffer[(y*newWidth + x)*4 + 2];
+	*a = buffer[(y*newWidth + x)*4 + 3];
 }
 
-void Font::SetPixelColor(uint8* buffer, uint16 width, uint16 x, uint16 y, uint8 r, uint8 g, uint8 b, uint8 a) const {
-	buffer[(y*width + x)*4 + 0] = r;
-	buffer[(y*width + x)*4 + 1] = g;
-	buffer[(y*width + x)*4 + 2] = b;
-	buffer[(y*width + x)*4 + 3] = a;
+void Font::SetPixelColor(uint8* buffer, uint16 newWidth, uint16 x, uint16 y, uint8 r, uint8 g, uint8 b, uint8 a) const {
+	buffer[(y*newWidth + x)*4 + 0] = r;
+	buffer[(y*newWidth + x)*4 + 1] = g;
+	buffer[(y*newWidth + x)*4 + 2] = b;
+	buffer[(y*newWidth + x)*4 + 3] = a;
 }

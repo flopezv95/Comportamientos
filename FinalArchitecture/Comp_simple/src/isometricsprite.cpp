@@ -20,9 +20,9 @@ void IsometricSprite::Update(double elapsed, const Map* map) {
 }
 
 void IsometricSprite::UpdateCollisionBox() {
-	double x = GetX() - GetImage()->GetHandleX()*fabs(GetScaleX());
-	double y = GetY() - GetImage()->GetHandleX()*fabs(GetScaleX());
-	double w = GetImage()->GetWidth()*fabs(GetScaleX());
-	double h = GetImage()->GetWidth()*fabs(GetScaleX());
-	Sprite::UpdateCollisionBox(x, y, w, h);
+	double newX = GetX() - GetImage()->GetHandleX()*fabs(GetScaleX());
+	double newY = GetY() - GetImage()->GetHandleX()*fabs(GetScaleX());
+	double newW = GetImage()->GetWidth()*fabs(GetScaleX());
+	double newH = GetImage()->GetWidth()*fabs(GetScaleX());
+	Sprite::UpdateCollisionBox(newX, newY, newW, newH);
 }

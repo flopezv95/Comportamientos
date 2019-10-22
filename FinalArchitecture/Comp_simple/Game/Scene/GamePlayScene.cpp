@@ -73,23 +73,23 @@ CGamePlayScene::~CGamePlayScene()
 void CGamePlayScene::Update(float FDelta)
 {
 	CGameBaseScene2::Update(FDelta);
-	m_pBee->SetPosition(mouseXPosition, mouseYPosition);
+	m_pBee->SetPosition(static_cast<float>(mouseXPosition), static_cast<float>(mouseYPosition));
 	if (rand() % m_iSpawnFruitTime == 0) { //Ver cuando el numero rando es igual a cero
 
 		CEntity2 * fruit = NEW(CEntity2, ("Fruit"));
-		fruit->SetPosition(rand() % 800, 0.0f);
+		fruit->SetPosition(static_cast<float>(rand() % 800), 0.0f);
 		fruit->AddComponent(NEW(CAnimator, (fruit, m_MySpawnables[rand() % 4])));
-		fruit->AddComponent(NEW(CVelocity, (fruit, 0.0f, rand() % 1 + 3)));
+		fruit->AddComponent(NEW(CVelocity, (fruit, 0.0f, static_cast<float> (rand() % 1 + 3))));
 		fruit->AddComponent (NEW(CCollision, (fruit)));
 		AddEntity(fruit);
 	}
 	if (rand() % m_iSpawnRocksTime == 0) { //Ver cuando el numero rando es igual a cero
 
 		CEntity2 * rock = NEW(CEntity2, ("Rock"));
-		rock->SetPosition(rand() % 800, 0.0f);
+		rock->SetPosition(static_cast<float>(rand() % 800), 0.0f);
 		rock->SetScale(0.5f, 0.5f);
 		rock->AddComponent(NEW(CAnimator, (rock, m_MySpawnables[4])));
-		rock->AddComponent(NEW(CVelocity, (rock, 0.0f, rand() % 1 + 4)));
+		rock->AddComponent(NEW(CVelocity, (rock, 0.0f, static_cast<float>(rand() % 1 + 4))));
 		rock->AddComponent(NEW(CCollision, (rock)));
 		AddEntity(rock);
 	}
@@ -99,7 +99,7 @@ void CGamePlayScene::Update(float FDelta)
 		bullet->SetPosition(m_pEnemy->GetPosition().getX()-150.0f, m_pEnemy->GetPosition().getY()-100.f);
 		bullet->SetScale(0.35f, 0.35f);
 		bullet->AddComponent(NEW(CAnimator, (bullet, "data/images/Projectile.png")));
-		bullet->AddComponent(NEW(CVelocity, (bullet, 0.0f, ((rand() % 2 + 5)*-1))));
+		bullet->AddComponent(NEW(CVelocity, (bullet, 0.0f, static_cast<float>((rand() % 2 + 5)*-1))));
 		bullet->AddComponent(NEW(CCollision, (bullet)));
 		AddEntity(bullet);
 	}
@@ -151,7 +151,7 @@ int CGamePlayScene::Init()
 	AddEntity(m_pImageLife3);
 	//Add Bee
 	m_pBee = NEW(CEntity2, ("Bee"));
-	m_pBee->SetPosition(mouseXPosition, mouseYPosition);
+	m_pBee->SetPosition(static_cast<float>(mouseXPosition), static_cast<float>(mouseYPosition));
 	m_pBee->AddComponent(NEW(CAnimator,  (m_pBee, "data/images/bee_life.png")));
 	m_pBee->AddComponent(NEW(CVelocity,  (m_pBee)));
 	m_pBee->AddComponent(NEW(CCollision, (m_pBee)));

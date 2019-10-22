@@ -8,37 +8,37 @@ Camera::Camera() {
 	followingSprite = NULL;
 }
 
-void Camera::SetX(double x) {
+void Camera::SetX(double xToSet) {
 	if ( !HasBounds() ) {
-		this->x = x;
+		this->x = xToSet;
 	} else {
-		if ( x < GetMinX() )
+		if (xToSet < GetMinX() )
 			this->x = GetMinX();
-		else if ( x > GetMaxX() )
+		else if (xToSet > GetMaxX() )
 			this->x = GetMaxX();
 		else
-			this->x = x;
+			this->x = xToSet;
 	}
 }
 
-void Camera::SetY(double y) {
+void Camera::SetY(double yToSet) {
 	if ( !HasBounds() ) {
-		this->y = y;
+		this->y = yToSet;
 	} else {
-		if ( y < GetMinY() )
+		if (yToSet < GetMinY() )
 			this->y = GetMinY();
-		else if ( y > GetMaxY() )
+		else if (yToSet > GetMaxY() )
 			this->y = GetMaxY();
 		else
-			this->y = y;
+			this->y = yToSet;
 	}
 }
 
-void Camera::SetBounds(double boundx0, double boundy0, double boundx1, double boundy1) {
-	this->boundx0 = boundx0;
-	this->boundy0 = boundy0;
-	this->boundx1 = boundx1;
-	this->boundy1 = boundy1;
+void Camera::SetBounds(double boundx0ToSet, double boundy0ToSet, double boundx1ToSet, double boundy1ToSet) {
+	this->boundx0 = boundx0ToSet;
+	this->boundy0 = boundy0ToSet;
+	this->boundx1 = boundx1ToSet;
+	this->boundy1 = boundy1ToSet;
 	SetPosition(GetX(), GetY());
 }
 

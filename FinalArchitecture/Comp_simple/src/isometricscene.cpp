@@ -13,9 +13,9 @@ IsometricSprite* IsometricScene::CreateSprite(Image* image, Layer layer) {
 	return spr;
 }
 
-void IsometricScene::Update(double elapsed, Map* map) {
+void IsometricScene::Update(double elapsed, Map* mapToUpdate) {
 	// Llamamos al metodo padre
-	Scene::Update(elapsed, map);
+	Scene::Update(elapsed, mapToUpdate);
 
 	// Ordenamos los sprites
     for ( int i = 0; i < LAYER_COUNT; i++ ) GetSprites((Layer)i).Sort(CompareSprites);
