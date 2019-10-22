@@ -44,7 +44,7 @@ CGameSprite *CGraphics::AddSprite(const char *psz_file)
 void CGraphics::RemoveSprite(CGameSprite *pSprite)
 {
 	m_pScene->RemoveSprite(pSprite->GetEngineSprite(), Scene::LAYER_FRONT);
-	DEL(pSprite);
+	SAFE_DELETE(pSprite);
 }
 // ****************************************************************************
 //

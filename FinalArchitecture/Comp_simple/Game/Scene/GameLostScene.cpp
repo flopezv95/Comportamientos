@@ -28,11 +28,11 @@ CGameLostScene::CGameLostScene() : CGameBaseScene2(CGameBaseScene2::ELostGameSce
 CGameLostScene::~CGameLostScene()
 {
 	RemoveEntity(m_pBackGround);
-	DEL(m_pBackGround);
+	SAFE_DELETE(m_pBackGround);
 	RemoveEntity(m_pText);
-	DEL(m_pText);
-	RemoveEntity(m_pButton);
-	DEL(m_pButton);
+	SAFE_DELETE(m_pText);
+	RemoveEntity(m_pButtonRestart);
+	SAFE_DELETE(m_pButtonRestart);
 }
 //**************************************************************************************************************
 //
@@ -50,19 +50,22 @@ int CGameLostScene::Init()
 	m_pText->AddComponent(NEW(CText, (m_pText, String("data/fonts/font.png"), String("THE BEE'S GAME"), 300.0, 550.0)));
 	m_pText->AddComponent(NEW(CText, (m_pText, String("data/fonts/font.png"), String("SCORE"), 20.0, 15.0)));
 	m_pText->AddComponent(NEW(CText, (m_pText, String("data/fonts/font.png"), String("GAME OVER"), g_widthScreen / 2 - 80, g_heightScreen / 2 - 150)));
-	m_pText->AddComponent(NEW(CText, (m_pText, String("data/fonts/font.png"), String("For play again push 'R'"), g_widthScreen / 4 + 10 , g_heightScreen / 2 - 120)));
-	m_pText->AddComponent(NEW(CText, (m_pText, String("data/fonts/font.png"), String("For exit the game push 'Esc'"), g_widthScreen / 4 - 20, g_heightScreen / 2 - 90)));
+	m_pText->AddComponent(NEW(CText, (m_pText, String("data/fonts/font.png"), String("For exit the game push 'Esc'"), g_widthScreen / 4 - 20, g_heightScreen / 2 - 40)));
 	m_pText->AddComponent(NEW(CText, (m_pText, String("data/fonts/font.png"), String("0"), 50.0, 35.0)));
 	AddEntity(m_pText);
 
 	//Add button
-	m_pButton = NEW(CEntity2, ("Button"));
+	m_pButtonRestart = NEW(CEntity2, ("ButtonRestart"));
+	m_pButtonRestart->SetPosition(470.0f, 240.0f);
+	m_pButtonRestart->SetScale(0.4f, 0.4f);
+	m_pButtonRestart->AddComponent(NEW(CAnimator, (m_pButtonRestart, "data/images/restart.jpg")));
+	m_pButtonRestart->AddComponent(NEW(CVelocity, (m_pButtonRestart)));
 	auto callback = [](CButton * pButton)
 	{
 		g_pSM->SetScene(CGameBaseScene2::EPlayGameScene);
 	};
-	m_pButton->AddComponent(NEW(CButton, (m_pButton, callback, 'R')));
-	AddEntity(m_pButton);
+	m_pButtonRestart->AddComponent(NEW(CButton, (m_pButtonRestart, callback, true, 445, 335, 245, 200)));
+	AddEntity(m_pButtonRestart);
 
 	return 0;
 }

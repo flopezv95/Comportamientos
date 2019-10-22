@@ -31,7 +31,7 @@ private:
 	CEntity2 * m_pBee;
 	CEntity2 * m_pFrontier;
 	CEntity2 * m_pEnemy;
-	std::string str1;
+	std::string m_sFruitText;
 	std::vector<const char*> m_MySpawnables;
 };
 #endif

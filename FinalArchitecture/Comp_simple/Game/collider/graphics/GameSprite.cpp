@@ -10,8 +10,8 @@
 // ****************************************************************************
 CGameSprite::CGameSprite(const char *psz_image_file)
 {
-	m_pImage	= new Image	(psz_image_file);
-	m_pSprite	= new Sprite(m_pImage);
+	m_pImage	= NEW (Image,	(psz_image_file));
+	m_pSprite	= NEW ( Sprite, (m_pImage));
 
 	m_pSprite->SetPosition(0.0f, 0.0f, 0.0f);
 	m_pSprite->SetScale(1.0f, 1.0f);
@@ -44,4 +44,6 @@ void CGameSprite::SetRotation(float r)
 // ****************************************************************************
 CGameSprite::~CGameSprite()
 {
+	SAFE_DELETE(m_pImage);
+	SAFE_DELETE(m_pSprite);
 }

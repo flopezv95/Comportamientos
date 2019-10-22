@@ -9,8 +9,8 @@
 //****************************************************************************************
 CEntity2::CEntity2(const char * name)
 {
-	m_pName = NEW(String ,(name));
-	m_pTransform = NEW(CTransform, (this, 0.0f, 0.0f));
+	m_pName =NEW(String,(name));
+	m_pTransform = NEW(CTransform,(this, 0.0f, 0.0f));
 	this->AddComponent(m_pTransform);
 }
 //*******************************************************************************
@@ -18,8 +18,7 @@ CEntity2::CEntity2(const char * name)
 //*******************************************************************************
 CEntity2::~CEntity2()
 {
-	for (CComponent2 *p : m_components)
-		DEL(p);
+	RemoveComponents();
 }
 //*******************************************************************************
 //
@@ -44,6 +43,14 @@ void CEntity2::AddComponent(CComponent2 * p)
 {
 	m_components.push_back(p);
 }
+void CEntity2::RemoveComponents()
+{
+	for (CComponent2 *p : m_components)
+	{
+		SAFE_DELETE(p);
+	}
+	m_components.clear();
+}
 //*******************************************************************************
 //
 //*******************************************************************************
@@ -61,16 +68,16 @@ void CEntity2::SetScale(float fScaleX, float fScaleY)
 //*******************************************************************************
 //
 //*******************************************************************************
-Vector2D * CEntity2::GetPosition()
+Vector2D  CEntity2::GetPosition()
 {
-	Vector2D* positionToReturn = NEW(Vector2D, (m_pTransform->GetPosition().getX(), m_pTransform->GetPosition().getY()));
+	Vector2D positionToReturn(m_pTransform->GetPosition().getX(), m_pTransform->GetPosition().getY());
 	return positionToReturn;
 }
 //*******************************************************************************
 //
 //*******************************************************************************
-Vector2D * CEntity2::GetScale()
+Vector2D  CEntity2::GetScale()
 {
-	Vector2D* scaleToReturn = NEW(Vector2D, (m_pTransform->GetScale().getX(), m_pTransform->GetScale().getY()));
+	Vector2D scaleToReturn(m_pTransform->GetScale().getX(), m_pTransform->GetScale().getY());
 	return scaleToReturn;
 }

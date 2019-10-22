@@ -9,12 +9,12 @@
 //****************************************************************************************
 CAIController::CAIController(CEntity2 * pEntity, float limitXLeft, float limitXRight, float limitYUp, float limitYDown) :CComponent2(ELimitMovement, pEntity)
 {
-	m_flimitXL = limitXLeft;
-	m_flimitXR = limitXRight;
-	m_flimitYD = limitYDown;
-	m_flimitYU = limitYUp;
-	m_fvelocityX = -2.0f;
-	m_fvelocityY = 0;
+	m_fLimitXL = limitXLeft;
+	m_fLimitXR = limitXRight;
+	m_fLimitYD = limitYDown;
+	m_fLimitYU = limitYUp;
+	m_fVelocityX = -2.0f;
+	m_fVelocityY = 0;
 }
 //****************************************************************************************
 //
@@ -31,9 +31,9 @@ void CAIController::Update(float fDelta)
 	GetEntity()->ManageMessage(pMessage);
 	float positionX, positionY, scaleX, scaleY, rotation;
 	pMessage->GetTransform(positionX, positionY, scaleX, scaleY, rotation);
-	if (positionX <= m_flimitXL || positionX >= m_flimitXR)
+	if (positionX <= m_fLimitXL || positionX >= m_fLimitXR)
 	{
-		m_fvelocityX *=-1;
+		m_fVelocityX *=-1;
 	}
 }
 // ****************************************************************************
@@ -46,7 +46,7 @@ void CAIController::ManageMessage(TMessage * pmessage)
 	case TMessage::EGetVelocity:
 	{
 		TMessageGetVelocity*p = static_cast<TMessageGetVelocity *> (pmessage);
-		p->SetVelocity(m_fvelocityX, m_fvelocityY);
+		p->SetVelocity(m_fVelocityX, m_fVelocityY);
 	}
 	break;
 	}

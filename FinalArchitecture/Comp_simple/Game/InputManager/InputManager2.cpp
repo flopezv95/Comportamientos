@@ -35,8 +35,15 @@ CInputManager2::~CInputManager2()
 {
 	for (TEvent* event : m_events)
 	{
-		DEL(event);
+		SAFE_DELETE(event);
 	}
+	m_events.clear();
+
+	for (IListener* event : m_listeners)
+	{
+		SAFE_DELETE(event);
+	}
+	m_listeners.clear();
 }
 //*****************************************************************************************
 //
@@ -50,7 +57,6 @@ void CInputManager2::DeregisterToEvent(IListener * pObserver)
 			{
 				m_listeners.erase(m_listeners.begin()+i);
 			}
-
 		}
 			
 }

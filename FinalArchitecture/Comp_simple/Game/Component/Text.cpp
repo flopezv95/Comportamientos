@@ -26,7 +26,7 @@ CText::CText(CEntity2 * pEntity, const String & filename, const String & textToW
 CText::~CText()
 {
 	g_pGR2->RemoveText(m_pmyText);
-	m_pText = nullptr;
+	SAFE_DELETE(m_pText);
 }
 //****************************************************************************************
 //

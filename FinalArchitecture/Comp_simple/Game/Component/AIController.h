@@ -23,12 +23,12 @@ public:
 	virtual void ManageMessage(TMessage * pmessage);
 
 private:
-	float m_flimitXL;
-	float m_flimitXR;
-	float m_flimitYU;
-	float m_flimitYD;
-	float m_fvelocityX;
-	float m_fvelocityY;
+	float m_fLimitXL;
+	float m_fLimitXR;
+	float m_fLimitYU;
+	float m_fLimitYD;
+	float m_fVelocityX;
+	float m_fVelocityY;
 };
 
 #endif

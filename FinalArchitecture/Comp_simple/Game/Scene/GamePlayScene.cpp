@@ -32,7 +32,7 @@ CGamePlayScene::CGamePlayScene(int spawnFruitTime, int spawnRockTime, int fireEn
 	m_pImageLife2      = nullptr;
 	m_pImageLife3      = nullptr;
 	m_pBee             = nullptr;
-	str1 = "Fruit";
+	m_sFruitText = "Fruit";
 	//Add Enemy
 	m_pEnemy = nullptr;
 	//Add frontier
@@ -51,15 +51,21 @@ CGamePlayScene::CGamePlayScene(int spawnFruitTime, int spawnRockTime, int fireEn
 CGamePlayScene::~CGamePlayScene()
 {
 	RemoveEntity(m_pBackGround);
-	DEL(m_pBackGround);
+	SAFE_DELETE(m_pBackGround);
 	RemoveEntity(m_pText);
-	DEL(m_pText);
+	SAFE_DELETE(m_pText);
 	RemoveEntity(m_pBee);
-	DEL(m_pBee);
+	SAFE_DELETE(m_pBee);
+	RemoveEntity(m_pImageLife1);
+	SAFE_DELETE(m_pImageLife1);
+	RemoveEntity(m_pImageLife2);
+	SAFE_DELETE(m_pImageLife2);
+	RemoveEntity(m_pImageLife3);
+	SAFE_DELETE(m_pImageLife3);
 	RemoveEntity(m_pEnemy);
-	DEL(m_pEnemy);
+	SAFE_DELETE(m_pEnemy);
 	RemoveEntity(m_pFrontier);
-	DEL(m_pFrontier);
+	SAFE_DELETE(m_pFrontier);
 }
 //**************************************************************************************************************
 //
@@ -90,7 +96,7 @@ void CGamePlayScene::Update(float FDelta)
 	if (rand() % m_iFireEnemyRate == 0) { //Ver cuando el numero rando es igual a cero
 
 		CEntity2 * bullet = NEW(CEntity2, ("Bullet"));
-		bullet->SetPosition(m_pEnemy->GetPosition()->getX()-150.0f, m_pEnemy->GetPosition()->getY()-100.f);
+		bullet->SetPosition(m_pEnemy->GetPosition().getX()-150.0f, m_pEnemy->GetPosition().getY()-100.f);
 		bullet->SetScale(0.35f, 0.35f);
 		bullet->AddComponent(NEW(CAnimator, (bullet, "data/images/Projectile.png")));
 		bullet->AddComponent(NEW(CVelocity, (bullet, 0.0f, ((rand() % 2 + 5)*-1))));

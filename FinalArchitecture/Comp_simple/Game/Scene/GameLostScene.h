@@ -21,6 +21,6 @@ private:
 	
 	CEntity2 * m_pBackGround;
 	CEntity2 * m_pText;
-	CEntity2 * m_pButton;
+	CEntity2 * m_pButtonRestart;
 };
 #endif

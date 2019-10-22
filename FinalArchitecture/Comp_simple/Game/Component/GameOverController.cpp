@@ -35,15 +35,15 @@ void CGameOverController::Update(float fDelta)
 	pMessage->GetNumberOfCollisionWithRock(rockCollision);
 	if (rockCollision == 1)
 	{
-		m_pLife1->~CEntity2();
+		m_pLife1->RemoveComponents();
 	}
 	else if (rockCollision == 2)
 	{
-		m_pLife2->~CEntity2();
+		m_pLife2->RemoveComponents();
 	}
 	else if (rockCollision == 3)
 	{
-		m_pLife3->~CEntity2();
+		m_pLife3->RemoveComponents();
 		g_pSM->SetScene(CGameBaseScene2::ELostGameScene);
 	}
 }

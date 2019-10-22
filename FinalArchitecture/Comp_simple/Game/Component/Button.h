@@ -15,7 +15,7 @@ class CButton : public CComponent2, public CInputManager2::IListener
 {
 public:
 	CButton(CEntity2 * pEntity, std::function<void(CButton*)> callback, char key);
-	CButton(CEntity2 * pEntity, std::function<void(CButton*)> callback, bool bUseLeftButton);
+	CButton(CEntity2 * pEntity, std::function<void(CButton*)> callback, bool bUseLeftButton, int higherLimitX, int lowerLimitX, int higherLimitY, int lowerLimitY);
 
 	~CButton();
 
@@ -27,6 +27,10 @@ private:
 	std::function<void(CButton *)> m_callback;
 	char m_ckey;
 	bool m_bUseLeftButton;
+	int m_iHigherLimitX;
+	int m_iLowerLimitX;
+	int m_iHigherLimitY;
+	int m_iLowerLimitY;
 };
 
 #endif

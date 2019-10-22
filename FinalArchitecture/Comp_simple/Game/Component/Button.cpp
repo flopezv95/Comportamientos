@@ -16,11 +16,15 @@ CButton::CButton(CEntity2 * pEntity, std::function<void(CButton*)> callback, cha
 	m_ckey = key;
 }
 
-CButton::CButton(CEntity2 * pEntity, std::function<void(CButton*)> callback, bool bUseLeftButton) :CComponent2(EButton, pEntity)
+CButton::CButton(CEntity2 * pEntity, std::function<void(CButton*)> callback, bool bUseLeftButton, int higherLimitX, int lowerLimitX, int higherLimitY, int lowerLimitY) :CComponent2(EButton, pEntity)
 {
 	g_pIM->RegisterToEvent(this);
 	m_callback = callback;
 	m_bUseLeftButton = bUseLeftButton;
+	m_iHigherLimitX = higherLimitX;
+	m_iLowerLimitX = lowerLimitX;
+	m_iHigherLimitY = higherLimitY;
+	m_iLowerLimitY = lowerLimitY;
 }
 //****************************************************************************************
 //
@@ -47,7 +51,7 @@ void CButton::ManageEvent(TEvent * pEvent)
 		if (m_bUseLeftButton)
 		{
 			TEventMouseDownLeft *p = static_cast<TEventMouseDownLeft *> (pEvent);
-			if (p->Getx() > 310 && p->Getx() < 475 && p->Gety() > 200 && p->Gety() < 245)
+			if (p->Getx() > m_iLowerLimitX && p->Getx() < m_iHigherLimitX && p->Gety() > m_iLowerLimitY && p->Gety() < m_iHigherLimitY)
 			{
 				m_callback(this);
 			}

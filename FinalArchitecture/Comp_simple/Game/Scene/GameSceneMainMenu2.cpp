@@ -82,7 +82,7 @@ int CGameSceneMainMenu2::Init()
 	AddEntity(m_pImageLife3);
 	//Add button
 	m_pButton = NEW(CEntity2, ("Button"));
-	m_pButton->SetPosition(585.0f, 280.0f);
+	m_pButton->SetPosition(560.0f, 280.0f);
 	m_pButton->SetScale(0.3f, 0.3f);
 	m_pButton->AddComponent(NEW(CAnimator, (m_pButton, "data/images/start.jpg")));
 	m_pButton->AddComponent(NEW(CVelocity, (m_pButton)));
@@ -90,7 +90,7 @@ int CGameSceneMainMenu2::Init()
 	{
 		g_pSM->SetScene(CGameBaseScene2::EPlayGameScene);
 	};
-	m_pButton->AddComponent(NEW(CButton, (m_pButton, callback,true)));
+	m_pButton->AddComponent(NEW(CButton, (m_pButton, callback, true, 465, 325, 245, 200)));
 	AddEntity(m_pButton);
 	return 0;
 }

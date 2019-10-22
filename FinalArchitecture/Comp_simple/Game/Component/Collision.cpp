@@ -31,6 +31,7 @@ CCollision::CCollision(CEntity2 * pEntity) :CComponent2(ECollision, pEntity)
 CCollision::~CCollision()
 {
 	g_pCM->RemoveCollider(m_collisionInfo);
+	SAFE_DELETE(m_collisionInfo);
 }
 //****************************************************************************************
 //
@@ -44,22 +45,22 @@ void CCollision::CollideWith(CEntity2 *pEntity1, CEntity2 *pEntity2)
 	std::string str5("Bullet");
 	if (((str1.compare(pEntity1->GetName()->ToCString())) == 0) && ((str3.compare(pEntity2->GetName()->ToCString())) == 0))
 	{
-		pEntity1->~CEntity2();
+		pEntity1->RemoveComponents();
 		m_iCollisionWithFruits++;
 	}
 	if((((str2.compare(pEntity1->GetName()->ToCString())) == 0) || ((str5.compare(pEntity1->GetName()->ToCString())) == 0)) && ((str3.compare(pEntity2->GetName()->ToCString())) == 0))
 	{
-		pEntity1->~CEntity2();
+		pEntity1->RemoveComponents();
 		m_iCollisionWithRock++;
 	}
 	if (((str1.compare(pEntity1->GetName()->ToCString())) == 0) && ((str4.compare(pEntity2->GetName()->ToCString())) == 0))
 	{
-		pEntity1->~CEntity2();
+		pEntity1->RemoveComponents();
 		m_iCollisionWithFruits--;
 	}
 	if (((str2.compare(pEntity1->GetName()->ToCString())) == 0) && ((str4.compare(pEntity2->GetName()->ToCString())) == 0))
 	{
-		pEntity1->~CEntity2();
+		pEntity1->RemoveComponents();
 	}
 }
 //****************************************************************************************

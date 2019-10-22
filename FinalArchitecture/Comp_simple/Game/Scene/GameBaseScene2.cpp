@@ -13,7 +13,10 @@ CGameBaseScene2::CGameBaseScene2(TScene type)
 CGameBaseScene2::~CGameBaseScene2()
 {
 	for (auto pEntity : m_entities)
+	{
 		DEL(pEntity);
+	}
+	m_entities.clear();
 }
 //*******************************************************************************
 //
