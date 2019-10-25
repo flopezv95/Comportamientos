@@ -56,12 +56,14 @@
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <DebugInformationFormat>OldStyle</DebugInformationFormat>
       <CompileAs>CompileAsCpp</CompileAs>
+      <AdditionalIncludeDirectories>C:\Users\Felipe L\Desktop\U-Tad\Comportamientos\GIthub\FinalArchitecture\Comp_simple\lib\openal\AL;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>bass/bass.lib;lib/glfw.win32.lib;opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>bass/bass.lib;lib/glfw.win32.lib;opengl32.lib;openal32.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <IgnoreAllDefaultLibraries>false</IgnoreAllDefaultLibraries>
+      <AdditionalLibraryDirectories>C:\Users\Felipe L\Desktop\U-Tad\Comportamientos\GIthub\FinalArchitecture\Comp_simple\lib\openal;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -96,6 +98,7 @@
     <ClInclude Include="Game\Component\Collision.h" />
     <ClInclude Include="Game\Component\Component2.h" />
     <ClInclude Include="Game\Component\GameOverController.h" />
+    <ClInclude Include="Game\Component\Sound.h" />
     <ClInclude Include="Game\Component\Text.h" />
     <ClInclude Include="Game\Component\Transform.h" />
     <ClInclude Include="Game\Component\Velocity.h" />
@@ -110,6 +113,9 @@
     <ClInclude Include="Game\Scene\GameSceneMainMenu2.h" />
     <ClInclude Include="Game\Scene\SceneManager.h" />
     <ClInclude Include="include\array.h" />
+    <ClInclude Include="include\Audiobuffer.h" />
+    <ClInclude Include="include\AudioSource.h" />
+    <ClInclude Include="include\AudioStream.h" />
     <ClInclude Include="include\bone.h" />
     <ClInclude Include="include\bonedata.h" />
     <ClInclude Include="include\camera.h" />
@@ -126,6 +132,7 @@
     <ClInclude Include="include\isometricmap.h" />
     <ClInclude Include="include\isometricscene.h" />
     <ClInclude Include="include\isometricsprite.h" />
+    <ClInclude Include="include\Listener.h" />
     <ClInclude Include="include\map.h" />
     <ClInclude Include="include\mapscene.h" />
     <ClInclude Include="include\math.h" />
@@ -196,6 +203,7 @@
     <ClCompile Include="Game\Component\Button.cpp" />
     <ClCompile Include="Game\Component\Collision.cpp" />
     <ClCompile Include="Game\Component\GameOverController.cpp" />
+    <ClCompile Include="Game\Component\Sound.cpp" />
     <ClCompile Include="Game\Component\Text.cpp" />
     <ClCompile Include="Game\Component\Transform.cpp" />
     <ClCompile Include="Game\Component\Velocity.cpp" />
@@ -241,6 +249,9 @@
     <ClCompile Include="Lua\lutf8lib.c" />
     <ClCompile Include="Lua\lvm.c" />
     <ClCompile Include="Lua\lzio.c" />
+    <ClCompile Include="src\Audiobuffer.cpp" />
+    <ClCompile Include="src\AudioSource.cpp" />
+    <ClCompile Include="src\AudioStream.cpp" />
     <ClCompile Include="src\bone.cpp" />
     <ClCompile Include="src\camera.cpp" />
     <ClCompile Include="src\collisionmanager.cpp" />
@@ -251,6 +262,7 @@
     <ClCompile Include="src\isometricmap.cpp" />
     <ClCompile Include="src\isometricscene.cpp" />
     <ClCompile Include="src\isometricsprite.cpp" />
+    <ClCompile Include="src\Listener.cpp" />
     <ClCompile Include="src\map.cpp" />
     <ClCompile Include="src\mapscene.cpp" />
     <ClCompile Include="src\math.cpp" />

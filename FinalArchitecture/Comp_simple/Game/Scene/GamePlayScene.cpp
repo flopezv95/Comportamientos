@@ -9,6 +9,7 @@
 #include "../Component/Velocity.h"
 #include "../Component/Collision.h"
 #include "../Component/GameOverController.h"
+#include "../Component/Sound.h"
 #include "../../Vector2D.h"
 #include "../Component/AIController.h"
 
@@ -32,6 +33,7 @@ CGamePlayScene::CGamePlayScene(int spawnFruitTime, int spawnRockTime, int fireEn
 	m_pImageLife2      = nullptr;
 	m_pImageLife3      = nullptr;
 	m_pBee             = nullptr;
+	m_sound = nullptr;
 	m_sFruitText = "Fruit";
 	//Add Enemy
 	m_pEnemy = nullptr;
@@ -66,6 +68,8 @@ CGamePlayScene::~CGamePlayScene()
 	SAFE_DELETE(m_pEnemy);
 	RemoveEntity(m_pFrontier);
 	SAFE_DELETE(m_pFrontier);
+	RemoveEntity(m_sound);
+	SAFE_DELETE(m_sound);
 }
 //**************************************************************************************************************
 //
@@ -166,7 +170,12 @@ int CGamePlayScene::Init()
 	m_pEnemy->AddComponent(NEW(CVelocity, (m_pEnemy)));
 	m_pEnemy->AddComponent(NEW(CAIController, (m_pEnemy, 250.0f, g_widthScreen + 60.0f)));
 	AddEntity(m_pEnemy);
-
+	//AddSound
+	m_sound = NEW(CEntity2, ("GAmeSound"));
+	m_sound->SetPosition(g_widthScreen / 2, g_heightScreen/2);
+	m_sound->SetScale(0.25f, 0.25f);
+	m_sound->AddComponent(NEW(CSound,(m_sound,"data/sound/mutant.ogg")));
+	AddEntity(m_sound);
 	return 0;
 }
 

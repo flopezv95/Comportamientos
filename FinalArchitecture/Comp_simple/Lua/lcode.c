@@ -737,7 +737,7 @@ void luaK_indexed (FuncState *fs, expdesc *t, expdesc *k) {
   lua_assert(!hasjumps(t));
   t->u.ind.t = static_cast<lu_byte>(t->u.info);
   t->u.ind.idx = static_cast<short>(luaK_exp2RK(fs, k));
-  t->u.ind.vt = (t->k == VUPVAL) ? VUPVAL
+  t->u.ind.vt = (t->k == VUPVAL) ? static_cast<lu_byte>(VUPVAL)
                                  : check_exp(vkisinreg(t->k), VLOCAL);
   t->k = VINDEXED;
 }

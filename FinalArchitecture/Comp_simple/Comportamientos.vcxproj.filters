@@ -346,6 +346,21 @@
     <ClInclude Include="Game\Game.h">
       <Filter>Source Files\game</Filter>
     </ClInclude>
+    <ClInclude Include="include\Audiobuffer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\AudioSource.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\AudioStream.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Listener.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Component\Sound.h">
+      <Filter>Source Files\game\Component</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\bone.cpp">
@@ -590,6 +605,21 @@
     </ClCompile>
     <ClCompile Include="Game\Game.cpp">
       <Filter>Source Files\game</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Audiobuffer.cpp">
+      <Filter>Source Files\U-gine</Filter>
+    </ClCompile>
+    <ClCompile Include="src\AudioSource.cpp">
+      <Filter>Source Files\U-gine</Filter>
+    </ClCompile>
+    <ClCompile Include="src\AudioStream.cpp">
+      <Filter>Source Files\U-gine</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Listener.cpp">
+      <Filter>Source Files\U-gine</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Component\Sound.cpp">
+      <Filter>Source Files\game\Component</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
